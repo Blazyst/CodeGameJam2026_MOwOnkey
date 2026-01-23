@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cxnwm05ns5c7e" path="res://sprites/stage.png" id="4_jyhfs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jyhfs"]
+resource_name = "floor"
 texture = ExtResource("2_sugp2")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
@@ -78,14 +79,6 @@ tile_set = SubResource("TileSet_tbgi4")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Label" type="Label" parent="."]
-offset_left = -19.0
-offset_top = -313.0
-offset_right = 21.0
-offset_bottom = -290.0
-text = "150"
-label_settings = SubResource("LabelSettings_tbgi4")
-
 [node name="Button" type="Button" parent="."]
 offset_left = -68.0
 offset_top = -68.0
@@ -103,3 +96,25 @@ texture = ExtResource("4_jyhfs")
 position = Vector2(106.63867, -217.86133)
 scale = Vector2(3.3394167, 3.3394167)
 texture = ExtResource("4_jyhfs")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 483.0
+offset_top = -91.0
+offset_right = 523.0
+offset_bottom = -68.0
+text = "25"
+label_settings = SubResource("LabelSettings_tbgi4")
+
+[node name="ButtonBuyBattery" type="Button" parent="."]
+offset_left = 438.0
+offset_top = -63.0
+offset_right = 536.0
+offset_bottom = 17.0
+text = "Battery (25)"
+
+[node name="ButtonUpgrade" type="Button" parent="."]
+offset_left = 439.0
+offset_top = 25.0
+offset_right = 539.0
+offset_bottom = 66.0
+text = "Upgrade (75)"
