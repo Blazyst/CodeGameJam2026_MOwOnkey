@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://xglepq8afuf0"]
+[gd_scene load_steps=6 format=3 uid="uid://xglepq8afuf0"]
 
-[ext_resource type="Texture2D" uid="uid://c8bwpy05ujrkm" path="res://icon.svg" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://bic7qvwwcbmh0" path="res://scripts/Main.cs" id="1_sugp2"]
 [ext_resource type="Texture2D" uid="uid://c8bwpy05ujrkm" path="res://icon.svg" id="3_jyhfs"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0wfyh"]
-albedo_texture = ExtResource("1_o5qli")
+albedo_texture = ExtResource("3_jyhfs")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_sugp2"]
 material = SubResource("StandardMaterial3D_0wfyh")
