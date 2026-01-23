@@ -12,10 +12,11 @@ public partial class Main : Node2D
 	public override void _Ready()
 	{
 		var scene = GD.Load<PackedScene>("res://scenes/pause_menu.tscn");
-		var instance = scene.Instantiate();
+		var instance = scene.Instantiate() as Node2D;
 		AddChild(instance);
-		pauseMenu = GetNode<Node2D>("PauseMenu") as PauseMenu;  
-		
+		instance.Visible = false;
+		pauseMenu = GetNode<Node2D>("PauseMenu") as PauseMenu;
+		var test = GetTree();
 		if (pauseMenu != null)
 		{
 			pauseMenu.Visible = false;
