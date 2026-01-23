@@ -25,6 +25,8 @@ public partial class FlashlightMechanic : Node2D
 	[Export] public float MaxScale = 1.0f;
 	[Export] public float MinScale = 0.3f;
 	[Export] public string TargetGroupName = "FoxyGroup";
+	
+	private AnimationPlayer animationPlayer;
 
 	public float CurrentBattery { get; private set; }
 	private bool _isLightActive = false;
@@ -33,6 +35,8 @@ public partial class FlashlightMechanic : Node2D
 	{
 		CurrentBattery = MaxBattery;
 		UpdateLightState(false);
+		AnimatedSprite2D battery = GetNode<AnimatedSprite2D>("battery");
+		animationPlayer = battery.GetNode<AnimationPlayer>("AnimationPlayer");
 	}
 
 	public override void _Process(double delta)
@@ -54,7 +58,28 @@ public partial class FlashlightMechanic : Node2D
 	private void HandleBattery(float delta)
 	{
 		CurrentBattery -= DrainRate * delta;
+		GetTree().Root.GetNode<Label>("Label").Text = CurrentBattery.ToString();
 		if (CurrentBattery < 0) CurrentBattery = 0;
+		if (CurrentBattery >= 0.80f * MaxBattery)
+		{
+			animationPlayer.Play("full");
+		}
+		else if (CurrentBattery >= 0.60f * MaxBattery)
+		{
+			animationPlayer.Play("60%");
+		}
+		else if (CurrentBattery >= 0.40f * MaxBattery)
+		{
+			animationPlayer.Play("40%");
+		}
+		else if (CurrentBattery >= 0.20f * MaxBattery)
+		{
+			animationPlayer.Play("20%");
+		}
+		else
+		{
+			animationPlayer.Play("empty");
+		}
 		float batteryPercent = CurrentBattery / MaxBattery;
 		float currentScale = MaxScale;
 

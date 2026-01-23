@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://xglepq8afuf0"]
+[gd_scene load_steps=19 format=3 uid="uid://xglepq8afuf0"]
 
 [ext_resource type="Script" uid="uid://b2j382s3m7wv2" path="res://scripts/FlashLightMechanics.cs" id="1_sugp2"]
 [ext_resource type="Texture2D" uid="uid://c8bwpy05ujrkm" path="res://icon.svg" id="3_jyhfs"]
 [ext_resource type="Script" uid="uid://dbwwhfsauxl63" path="res://scripts/DayNightCycle.cs" id="3_tbgi4"]
 [ext_resource type="Script" uid="uid://cudbdq51iu52v" path="res://scripts/UIManger.cs" id="4_jyhfs"]
+[ext_resource type="Texture2D" uid="uid://u3aorun6qabm" path="res://sprites/battery.png" id="4_tbgi4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0wfyh"]
 albedo_texture = ExtResource("3_jyhfs")
@@ -14,6 +15,81 @@ orientation = 2
 
 [sub_resource type="LabelSettings" id="LabelSettings_tbgi4"]
 font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tefeu"]
+atlas = ExtResource("4_tbgi4")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6xl0"]
+atlas = ExtResource("4_tbgi4")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tipki"]
+atlas = ExtResource("4_tbgi4")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85g3d"]
+atlas = ExtResource("4_tbgi4")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_choun"]
+atlas = ExtResource("4_tbgi4")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ya4ey"]
+atlas = ExtResource("4_tbgi4")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eb6dy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tefeu")
+}],
+"loop": true,
+"name": &"20%",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6xl0")
+}],
+"loop": true,
+"name": &"40%",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tipki")
+}],
+"loop": true,
+"name": &"60%",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85g3d")
+}],
+"loop": true,
+"name": &"80%",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_choun")
+}],
+"loop": true,
+"name": &"empty",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ya4ey")
+}],
+"loop": true,
+"name": &"full",
+"speed": 5.0
+}]
 
 [sub_resource type="Gradient" id="Gradient_0wfyh"]
 
@@ -54,6 +130,12 @@ script = ExtResource("3_tbgi4")
 
 [node name="Node2D" type="Node2D" parent="."]
 script = ExtResource("1_sugp2")
+
+[node name="battery" type="AnimatedSprite2D" parent="Node2D"]
+position = Vector2(558, 0)
+sprite_frames = SubResource("SpriteFrames_eb6dy")
+animation = &"full"
+autoplay = "full"
 
 [node name="LumiereSouris" type="PointLight2D" parent="Node2D"]
 position = Vector2(-25, 0)
