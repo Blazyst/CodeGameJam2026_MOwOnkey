@@ -15,6 +15,8 @@ public partial class Main : Node2D
 	private const int START_UPGRADE_PRICE = 75;
 	
 	private int currentUpgradePrice = START_UPGRADE_PRICE;
+	
+	private AudioStreamPlayer2D soundPlayer;
 
 	private Button btn;
 	// Called when the node enters the scene tree for the first time.
@@ -24,12 +26,14 @@ public partial class Main : Node2D
 		this.btn.ButtonDown += OnButtonDown;
 		GetNode<Button>("ButtonBuyBattery").ButtonDown += onBuyBatteryButtonDown;
 		GetNode<Button>("ButtonUpgrade").ButtonDown += onButtonUpgradeButtonDown;
+		soundPlayer = GetNode<AudioStreamPlayer2D>("nosePlayer");
 	}
 
 	private void OnButtonDown()
 	{
 		Points += pointsEarnedPerClick;
 		GetNode<Label>("Label").Text = Points.ToString();
+		soundPlayer.Play();
 	}
 
 	private void onBuyBatteryButtonDown()

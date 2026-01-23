@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=4 uid="uid://xglepq8afuf0"]
+[gd_scene load_steps=9 format=4 uid="uid://xglepq8afuf0"]
 
 [ext_resource type="Script" uid="uid://bic7qvwwcbmh0" path="res://scripts/Main.cs" id="1_sugp2"]
 [ext_resource type="Texture2D" uid="uid://r3hhumcc2kyq" path="res://sprites/tileset_floor.png" id="2_sugp2"]
-[ext_resource type="Texture2D" uid="uid://c8bwpy05ujrkm" path="res://icon.svg" id="3_jyhfs"]
+[ext_resource type="Texture2D" uid="uid://komy2bx1f20h" path="res://sprites/freddy_head.png" id="3_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://cxnwm05ns5c7e" path="res://sprites/stage.png" id="4_jyhfs"]
+[ext_resource type="AudioStream" uid="uid://b4u1gt5p3nkyy" path="res://other_assets/nose.mp3" id="5_tbgi4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jyhfs"]
 resource_name = "floor"
@@ -80,10 +81,10 @@ tile_set = SubResource("TileSet_tbgi4")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Button" type="Button" parent="."]
-offset_left = -68.0
-offset_top = -68.0
-offset_right = 68.0
-offset_bottom = 68.0
+offset_left = -60.0
+offset_top = -60.0
+offset_right = 60.0
+offset_bottom = 60.0
 action_mode = 0
 icon = ExtResource("3_jyhfs")
 
@@ -118,3 +119,6 @@ offset_top = 25.0
 offset_right = 539.0
 offset_bottom = 66.0
 text = "Upgrade (75)"
+
+[node name="nosePlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_tbgi4")
