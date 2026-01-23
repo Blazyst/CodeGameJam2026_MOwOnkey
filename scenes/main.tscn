@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://b2j382s3m7wv2" path="res://scripts/FlashLightMechanics.cs" id="1_sugp2"]
 [ext_resource type="Texture2D" uid="uid://c8bwpy05ujrkm" path="res://icon.svg" id="3_jyhfs"]
 [ext_resource type="Script" uid="uid://dbwwhfsauxl63" path="res://scripts/DayNightCycle.cs" id="3_tbgi4"]
-[ext_resource type="Script" uid="uid://cudbdq51iu52v" path="res://scripts/UIManger.cs" id="4_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://u3aorun6qabm" path="res://sprites/battery.png" id="4_tbgi4"]
+[ext_resource type="Script" uid="uid://cw1i556yjmsku" path="res://scripts/UIManager.cs" id="4_tefeu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0wfyh"]
 albedo_texture = ExtResource("3_jyhfs")
@@ -15,6 +15,15 @@ orientation = 2
 
 [sub_resource type="LabelSettings" id="LabelSettings_tbgi4"]
 font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Gradient" id="Gradient_0wfyh"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_sugp2"]
+gradient = SubResource("Gradient_0wfyh")
+fill_from = Vector2(0.12931034, 0.012931035)
+fill_to = Vector2(0.6853448, 0.004310345)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jyhfs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tefeu"]
 atlas = ExtResource("4_tbgi4")
@@ -91,15 +100,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Gradient" id="Gradient_0wfyh"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_sugp2"]
-gradient = SubResource("Gradient_0wfyh")
-fill_from = Vector2(0.12931034, 0.012931035)
-fill_to = Vector2(0.6853448, 0.004310345)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_jyhfs"]
-
 [node name="Node2D" type="Node2D"]
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
@@ -128,14 +128,11 @@ icon = ExtResource("3_jyhfs")
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 script = ExtResource("3_tbgi4")
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="Node2D" type="Node2D" parent="." node_paths=PackedStringArray("LightVisual", "Hitbox", "HitboxShape")]
 script = ExtResource("1_sugp2")
-
-[node name="battery" type="AnimatedSprite2D" parent="Node2D"]
-position = Vector2(558, 0)
-sprite_frames = SubResource("SpriteFrames_eb6dy")
-animation = &"full"
-autoplay = "full"
+LightVisual = NodePath("LumiereSouris")
+Hitbox = NodePath("Area2D")
+HitboxShape = NodePath("Area2D/CollisionShape2D")
 
 [node name="LumiereSouris" type="PointLight2D" parent="Node2D"]
 position = Vector2(-25, 0)
@@ -152,4 +149,10 @@ scale = Vector2(0.029999997, 0.050000004)
 shape = SubResource("CircleShape2D_jyhfs")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-script = ExtResource("4_jyhfs")
+script = ExtResource("4_tefeu")
+
+[node name="battery" type="AnimatedSprite2D" parent="."]
+position = Vector2(558, 0)
+sprite_frames = SubResource("SpriteFrames_eb6dy")
+animation = &"full"
+autoplay = "full"

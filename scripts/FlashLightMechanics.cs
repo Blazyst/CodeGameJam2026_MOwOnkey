@@ -1,6 +1,6 @@
 using Godot;
-using System;
 
+namespace CodeGameJam2026_MOwOnkey.scripts;
 
 /// <summary>
 /// Provides flashlight functionality for a 2D game character, including battery management, light scaling, and
@@ -10,7 +10,7 @@ using System;
 /// battery power while the flashlight is active, adjusting the light's scale based on remaining battery, and affecting
 /// objects in a specified group when illuminated. The flashlight's state and behavior are updated each frame. Attach
 /// this component to a Node2D in your scene to enable flashlight controls and interactions.</remarks>
-public partial class FlashlightMechanic : Node2D
+public partial class FlashLightMechanics : Node2D
 {
 	[ExportGroup("Composants")]
 	[Export] public PointLight2D LightVisual;
@@ -26,7 +26,7 @@ public partial class FlashlightMechanic : Node2D
 	[Export] public float MinScale = 0.3f;
 	[Export] public string TargetGroupName = "FoxyGroup";
 	
-	private AnimationPlayer animationPlayer;
+	private AnimatedSprite2D animationPlayer;
 
 	public float CurrentBattery { get; private set; }
 	private bool _isLightActive = false;
@@ -35,8 +35,7 @@ public partial class FlashlightMechanic : Node2D
 	{
 		CurrentBattery = MaxBattery;
 		UpdateLightState(false);
-		AnimatedSprite2D battery = GetNode<AnimatedSprite2D>("battery");
-		animationPlayer = battery.GetNode<AnimationPlayer>("AnimationPlayer");
+		animationPlayer = GetTree().Root.GetNode<Node2D>("Node2D").GetNode<AnimatedSprite2D>("battery");
 	}
 
 	public override void _Process(double delta)
@@ -58,7 +57,7 @@ public partial class FlashlightMechanic : Node2D
 	private void HandleBattery(float delta)
 	{
 		CurrentBattery -= DrainRate * delta;
-		GetTree().Root.GetNode<Label>("Label").Text = CurrentBattery.ToString();
+		GetTree().Root.GetNode<Node2D>("Node2D").GetNode<Label>("Label").Text = CurrentBattery.ToString();
 		if (CurrentBattery < 0) CurrentBattery = 0;
 		if (CurrentBattery >= 0.80f * MaxBattery)
 		{
