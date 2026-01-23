@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://by855gb1wbo70"]
 
-[ext_resource type="Script" uid="uid://cb8xe75k35o1f" path="res://scenes/Menu.cs" id="1_mhnvy"]
+[ext_resource type="Script" uid="uid://cb8xe75k35o1f" path="res://scripts/Menu.cs" id="1_mhnvy"]
 [ext_resource type="Texture2D" uid="uid://c8bwpy05ujrkm" path="res://icon.svg" id="1_yqeox"]
 [ext_resource type="FontFile" uid="uid://dxw3j8g1wsmjk" path="res://font/FiveFontsatFreddy's-Regular.ttf" id="2_vjb58"]
 [ext_resource type="PackedScene" uid="uid://da6e8qxrbuw5q" path="res://scenes/setting.tscn" id="3_con2f"]
@@ -68,9 +68,9 @@ text = "Five Clicks At Foxy's"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Camera2D" type="Camera2D" parent="."]
+
 [node name="Setting" parent="." instance=ExtResource("3_con2f")]
 visible = false
-
-[node name="Camera2D" type="Camera2D" parent="."]
 
 [connection signal="pressed" from="SettingsBtn" to="." method="OnSettingsBtnPressed"]

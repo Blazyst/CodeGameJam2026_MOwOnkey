@@ -8,7 +8,11 @@ public partial class Menu : Node2D
 
 	public override void _Ready()
 	{
+		var scene = GD.Load<PackedScene>("res://scenes/setting.tscn");
+		var instance = scene.Instantiate();
+		AddChild(instance);
 		settingsScene = GetNode<Node2D>("Setting") as Setting;  
+		
 		if (settingsScene != null)
 		{
 			settingsScene.Visible = false;
