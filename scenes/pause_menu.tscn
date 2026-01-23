@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dlivrp8ypefjc"]
+[gd_scene load_steps=7 format=3 uid="uid://bo04jxv3ogfsi"]
 
 [ext_resource type="Script" uid="uid://j8ymqnyqa7jo" path="res://scripts/PauseMenu.cs" id="1_kukqi"]
 [ext_resource type="Texture2D" uid="uid://c8bwpy05ujrkm" path="res://icon.svg" id="1_myx47"]
 [ext_resource type="FontFile" uid="uid://dxw3j8g1wsmjk" path="res://font/FiveFontsatFreddy's-Regular.ttf" id="2_kukqi"]
+[ext_resource type="PackedScene" uid="uid://da6e8qxrbuw5q" path="res://scenes/setting.tscn" id="4_5d2l8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mhnvy"]
 albedo_texture = ExtResource("1_myx47")
@@ -28,14 +29,14 @@ theme_override_fonts/font = ExtResource("2_kukqi")
 theme_override_font_sizes/font_size = 20
 text = "Règle"
 
-[node name="QuitBtn" type="Button" parent="."]
+[node name="BackMenuBtn" type="Button" parent="."]
 offset_left = -101.0
 offset_top = 135.0
 offset_right = 94.0
 offset_bottom = 192.0
 theme_override_fonts/font = ExtResource("2_kukqi")
 theme_override_font_sizes/font_size = 20
-text = "Quitter le jeu"
+text = "Retour au menu"
 
 [node name="SettingsBtn" type="Button" parent="."]
 offset_left = -98.0
@@ -54,8 +55,15 @@ offset_bottom = -164.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_kukqi")
 theme_override_font_sizes/font_size = 60
-text = "Five Clicks At Foxy's"
+text = "Jeu En Pause"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Setting" parent="." instance=ExtResource("4_5d2l8")]
+visible = false
+
+[connection signal="pressed" from="RuleBtn" to="." method="OnRuleBtnPressed"]
+[connection signal="pressed" from="BackMenuBtn" to="." method="OnBackMenuBtnBtnPressed"]
+[connection signal="pressed" from="SettingsBtn" to="." method="OnSettingsBtnPressed"]

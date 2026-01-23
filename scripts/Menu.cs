@@ -20,7 +20,6 @@ public partial class Menu : Node2D
 		{
 			ruleScene.Visible = false;
 		}
-
 		
 		settingsScene = GetNode<Node2D>("Setting") as Setting;  
 		
@@ -46,6 +45,12 @@ public partial class Menu : Node2D
 		{
 			ruleBtn.Pressed += OnRuleBtnPressed;
 		}
+		
+		quitBtn = GetNode<Button>("QuitBtn");
+		if (quitBtn != null)
+		{
+			quitBtn.Pressed += OnQuitBtnPressed;
+		}
 	}
 
 	public void OnSettingsBtnPressed()
@@ -63,6 +68,11 @@ public partial class Menu : Node2D
 	public void OnRuleBtnPressed()
 	{
 		ruleScene.Visible = true;
+	}
+
+	public void OnQuitBtnPressed()
+	{
+		GetTree().Quit();	
 	}
 	
 }
