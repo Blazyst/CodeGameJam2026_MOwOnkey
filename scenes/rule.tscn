@@ -19,11 +19,11 @@ position = Vector2(1.0848045e-05, 8.34465e-06)
 scale = Vector2(575.99994, 324)
 mesh = SubResource("PlaneMesh_obe7d")
 
-[node name="Label" type="Label" parent="."]
+[node name="Title" type="Label" parent="."]
 offset_left = -366.0
-offset_top = -292.0
+offset_top = -310.0
 offset_right = 354.0
-offset_bottom = -164.0
+offset_bottom = -182.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_702p1")
 theme_override_font_sizes/font_size = 60
@@ -42,20 +42,41 @@ theme_override_fonts/font = ExtResource("2_702p1")
 text = "Retour"
 
 [node name="GoalTitle" type="Label" parent="."]
-offset_left = -571.0
-offset_top = -196.0
-offset_right = -391.0
-offset_bottom = -111.0
+offset_left = -561.0
+offset_top = -216.0
+offset_right = -381.0
+offset_bottom = -131.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_702p1")
 theme_override_font_sizes/font_size = 40
 text = "Le but : "
 
+[node name="GoalDescTitle" type="Label" parent="."]
+offset_left = -537.0
+offset_top = -155.0
+offset_right = 241.0
+offset_bottom = -121.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_702p1")
+text = "Survivre pendant 6 heures (4 min 30 réel) en empêchant Foxy de vous attaquer : "
+
+[node name="GoalDesc" type="Label" parent="."]
+offset_left = -507.0
+offset_top = -123.0
+offset_right = 219.0
+offset_bottom = 22.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_702p1")
+text = "- foxy peut apparaître à l’écran : il faut le flasher avec un clic droit
+- la lampe torche peut être rechargée grâce aux points gagnés en cliquant
+- les points permettent notamment d’acheter des améliorations et aide
+- à chaque heure, Foxy devient de plus en plus agressif"
+
 [node name="UpgradeTitle" type="Label" parent="."]
-offset_left = -571.0
-offset_top = -1.0
-offset_right = -126.0
-offset_bottom = 84.0
+offset_left = -573.0
+offset_top = 21.0
+offset_right = -128.0
+offset_bottom = 106.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_702p1")
 theme_override_font_sizes/font_size = 40
