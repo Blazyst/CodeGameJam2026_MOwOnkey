@@ -1,9 +1,14 @@
+<<<<<<< HEAD
 [gd_scene load_steps=7 format=4 uid="uid://xglepq8afuf0"]
+=======
+[gd_scene load_steps=6 format=3 uid="uid://xglepq8afuf0"]
+>>>>>>> dbd2ae0085a81e5a551ac169f0e5e570aaaaddef
 
 [ext_resource type="Script" uid="uid://bic7qvwwcbmh0" path="res://scripts/Main.cs" id="1_sugp2"]
 [ext_resource type="Texture2D" uid="uid://r3hhumcc2kyq" path="res://sprites/tileset_floor.png" id="2_sugp2"]
 [ext_resource type="Texture2D" uid="uid://c8bwpy05ujrkm" path="res://icon.svg" id="3_jyhfs"]
 
+<<<<<<< HEAD
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jyhfs"]
 texture = ExtResource("2_sugp2")
 texture_region_size = Vector2i(64, 64)
@@ -60,6 +65,10 @@ texture_region_size = Vector2i(64, 64)
 1:7/0 = 0
 2:7/0 = 0
 3:7/0 = 0
+=======
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0wfyh"]
+albedo_texture = ExtResource("3_jyhfs")
+>>>>>>> dbd2ae0085a81e5a551ac169f0e5e570aaaaddef
 
 [sub_resource type="TileSet" id="TileSet_tbgi4"]
 tile_size = Vector2i(64, 64)
