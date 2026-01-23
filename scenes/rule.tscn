@@ -72,6 +72,16 @@ text = "- foxy peut apparaître à l’écran : il faut le flasher avec un clic 
 - les points permettent notamment d’acheter des améliorations et aide
 - à chaque heure, Foxy devient de plus en plus agressif"
 
+[node name="GoalDesc" type="Label" parent="GoalDesc"]
+layout_mode = 0
+offset_top = 236.0
+offset_right = 726.0
+offset_bottom = 381.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_702p1")
+text = "- Recharge de la batterie
+- a définir"
+
 [node name="UpgradeTitle" type="Label" parent="."]
 offset_left = -573.0
 offset_top = 21.0
@@ -81,5 +91,14 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_702p1")
 theme_override_font_sizes/font_size = 40
 text = "Les améliorations :"
+
+[node name="UpgradeDesc" type="Label" parent="."]
+offset_left = -534.0
+offset_top = 80.0
+offset_right = 189.0
+offset_bottom = 114.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_702p1")
+text = "Il y a différents types d'améliorations, les amélioration sont les suivantes : "
 
 [connection signal="pressed" from="BackBtn" to="." method="OnBackBtnPressed"]
