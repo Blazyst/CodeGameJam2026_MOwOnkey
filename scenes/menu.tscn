@@ -38,7 +38,7 @@ theme_override_fonts/font = ExtResource("2_vjb58")
 theme_override_font_sizes/font_size = 20
 text = "Règle"
 
-[node name="Button3" type="Button" parent="."]
+[node name="QuitBtn" type="Button" parent="."]
 offset_left = -101.0
 offset_top = 135.0
 offset_right = 94.0
@@ -75,4 +75,5 @@ visible = false
 
 [connection signal="pressed" from="StartBtn" to="." method="OnStartBtnPressed"]
 [connection signal="pressed" from="RuleBtn" to="." method="OnRuleBtnPressed"]
+[connection signal="pressed" from="QuitBtn" to="." method="OnQuitBtnPressed"]
 [connection signal="pressed" from="SettingsBtn" to="." method="OnSettingsBtnPressed"]
