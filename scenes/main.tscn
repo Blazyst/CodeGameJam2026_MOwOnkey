@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=4 uid="uid://xglepq8afuf0"]
+[gd_scene load_steps=8 format=4 uid="uid://xglepq8afuf0"]
 
 [ext_resource type="Script" uid="uid://bic7qvwwcbmh0" path="res://scripts/Main.cs" id="1_sugp2"]
 [ext_resource type="Texture2D" uid="uid://r3hhumcc2kyq" path="res://sprites/tileset_floor.png" id="2_sugp2"]
 [ext_resource type="Texture2D" uid="uid://c8bwpy05ujrkm" path="res://icon.svg" id="3_jyhfs"]
+[ext_resource type="Texture2D" uid="uid://cxnwm05ns5c7e" path="res://sprites/stage.png" id="4_jyhfs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jyhfs"]
 texture = ExtResource("2_sugp2")
@@ -92,3 +93,13 @@ offset_right = 68.0
 offset_bottom = 68.0
 action_mode = 0
 icon = ExtResource("3_jyhfs")
+
+[node name="Stage" type="Sprite2D" parent="."]
+position = Vector2(-106.5, -218)
+scale = Vector2(3.328125, 3.328125)
+texture = ExtResource("4_jyhfs")
+
+[node name="Stage2" type="Sprite2D" parent="."]
+position = Vector2(106.63867, -217.86133)
+scale = Vector2(3.3394167, 3.3394167)
+texture = ExtResource("4_jyhfs")
