@@ -13,6 +13,7 @@ config_version=5
 config/name="CodeGameJam2026_MOwOnkey"
 run/main_scene="uid://xglepq8afuf0"
 config/features=PackedStringArray("4.5", "C#", "GL Compatibility")
+boot_splash/image="uid://dm28mfe1lpeb7"
 config/icon="res://icon.svg"
 
 [dotnet]
