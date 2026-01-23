@@ -11,7 +11,8 @@ config_version=5
 [application]
 
 config/name="CodeGameJam2026_MOwOnkey"
-config/features=PackedStringArray("4.5", "GL Compatibility")
+run/main_scene="uid://xglepq8afuf0"
+config/features=PackedStringArray("4.5", "C#", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [dotnet]
