@@ -4,13 +4,23 @@ using System;
 public partial class Menu : Node2D
 {
 	private Setting settingsScene;
-	private Button settingsBtn;  
+	private Rule ruleScene;
+	private Button settingsBtn;
+	private Button startBtn;
+	private Button ruleBtn;
 
 	public override void _Ready()
 	{
-		// var scene = GD.Load<PackedScene>("res://scenes/setting.tscn");
-		// var instance = scene.Instantiate();
-		// AddChild(instance);
+		var scene = GD.Load<PackedScene>("res://scenes/rule.tscn");
+		var instance = scene.Instantiate();
+		AddChild(instance);
+		ruleScene = GetNode<Node2D>("Rule") as Rule; 
+		if (ruleScene != null)
+		{
+			ruleScene.Visible = false;
+		}
+
+		
 		settingsScene = GetNode<Node2D>("Setting") as Setting;  
 		
 		if (settingsScene != null)
@@ -23,11 +33,35 @@ public partial class Menu : Node2D
 		{
 			settingsBtn.Pressed += OnSettingsBtnPressed;
 		}
+		
+		startBtn = GetNode<Button>("StartBtn");  
+		if (startBtn != null)
+		{
+			startBtn.Pressed += OnStartBtnPressed;
+		}
+		
+		ruleBtn = GetNode<Button>("RuleBtn");  
+		if (ruleBtn != null)
+		{
+			ruleBtn.Pressed += OnRuleBtnPressed;
+		}
 	}
 
 	public void OnSettingsBtnPressed()
 	{
 		settingsScene.Visible = true;
+	}
+	
+	public void OnStartBtnPressed()
+	{
+		var scene = ResourceLoader.Load<PackedScene>("res://scenes/main.tscn").Instantiate();
+		GetTree().Root.AddChild(scene);
+		GetTree().Root.GetNode<Node2D>("Menu").QueueFree();
+	}
+	
+	public void OnRuleBtnPressed()
+	{
+		ruleScene.Visible = true;
 	}
 	
 }
