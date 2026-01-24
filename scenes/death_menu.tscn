@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://ccnhbyfj8c46t"]
+
+[ext_resource type="Script" uid="uid://dpp5po38xip7l" path="res://scripts/DeathMenu.cs" id="1_ox6ks"]
+[ext_resource type="Texture2D" uid="uid://dme6dmkhfaq6b" path="res://other_assets/detah_background.png" id="2_vqs20"]
+[ext_resource type="FontFile" uid="uid://dxw3j8g1wsmjk" path="res://font/FiveFontsatFreddy's-Regular.ttf" id="3_20fbl"]
+[ext_resource type="AudioStream" uid="uid://bpgj5thm76far" path="res://other_assets/BB_laugh.mp3" id="4_vqs20"]
+
+[node name="DeathMenu" type="Node2D"]
+script = ExtResource("1_ox6ks")
+
+[node name="DetahBackground" type="Sprite2D" parent="."]
+position = Vector2(462, 194)
+texture = ExtResource("2_vqs20")
+
+[node name="BackBtn" type="Button" parent="."]
+offset_left = 827.0
+offset_top = 326.0
+offset_right = 983.0
+offset_bottom = 368.0
+theme_override_fonts/font = ExtResource("3_20fbl")
+text = "Retour au Menu"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(461, 181)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_vqs20")
+autoplay = true
+parameters/looping = true
+
+[connection signal="pressed" from="BackBtn" to="." method="OnBackMenuBtnBtnPressed"]
