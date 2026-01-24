@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://da6e8qxrbuw5q"]
+[gd_scene load_steps=7 format=3 uid="uid://da6e8qxrbuw5q"]
 
 [ext_resource type="Script" uid="uid://bdekcrayxc6gx" path="res://scripts/Setting.cs" id="1_sjyvh"]
 [ext_resource type="Texture2D" uid="uid://c8bwpy05ujrkm" path="res://icon.svg" id="1_u58eq"]
 [ext_resource type="FontFile" uid="uid://dxw3j8g1wsmjk" path="res://font/FiveFontsatFreddy's-Regular.ttf" id="2_7k1fe"]
+[ext_resource type="Texture2D" uid="uid://85spra4irucn" path="res://other_assets/bg.jpg" id="3_scrng"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vjb58"]
 albedo_texture = ExtResource("1_u58eq")
@@ -20,13 +21,14 @@ ResolutionOptionButton = NodePath("OptionButton")
 position = Vector2(7.6293945e-06, 7.6293945e-06)
 scale = Vector2(575.99994, 324)
 mesh = SubResource("PlaneMesh_7k1fe")
+texture = ExtResource("3_scrng")
 
-[node name="Label" type="Label" parent="."]
+[node name="Title" type="Label" parent="."]
 offset_left = -366.0
 offset_top = -292.0
 offset_right = 354.0
 offset_bottom = -164.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_7k1fe")
 theme_override_font_sizes/font_size = 60
 text = "Paramètre"
@@ -42,9 +44,22 @@ theme_override_fonts/font = ExtResource("2_7k1fe")
 text = "Retour"
 
 [node name="OptionButton" type="OptionButton" parent="."]
-offset_top = -17.0
-offset_right = 32.0
-offset_bottom = 3.0
+offset_left = -29.0
+offset_top = -41.0
+offset_right = 3.0
+offset_bottom = -21.0
+
+[node name="ResolutionLabel" type="Label" parent="."]
+offset_left = -494.0
+offset_top = -82.0
+offset_right = 226.0
+offset_bottom = 46.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_7k1fe")
+theme_override_font_sizes/font_size = 16
+text = "Résolution : "
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

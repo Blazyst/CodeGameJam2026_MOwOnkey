@@ -114,6 +114,9 @@ public partial class Main : Node2D
 	public void Lose()
 	{
 		timer.Stop();
+		var scene = ResourceLoader.Load<PackedScene>("res://scenes/death_menu.tscn").Instantiate();
+		GetTree().Root.AddChild(scene);
+		GetTree().Root.GetNode<Node2D>("Node2D").QueueFree();
 	}
 
 	public override void _Input(InputEvent @event)
