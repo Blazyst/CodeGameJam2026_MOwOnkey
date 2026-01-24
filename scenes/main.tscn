@@ -1,6 +1,5 @@
 [gd_scene load_steps=32 format=4 uid="uid://xglepq8afuf0"]
 
-
 [ext_resource type="Script" uid="uid://bic7qvwwcbmh0" path="res://scripts/Main.cs" id="1_sugp2"]
 [ext_resource type="Texture2D" uid="uid://r3hhumcc2kyq" path="res://sprites/tileset_floor.png" id="2_sugp2"]
 [ext_resource type="FontFile" uid="uid://dxw3j8g1wsmjk" path="res://font/FiveFontsatFreddy's-Regular.ttf" id="3_choun"]
