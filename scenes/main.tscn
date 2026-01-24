@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://xglepq8afuf0"]
+[gd_scene load_steps=28 format=4 uid="uid://xglepq8afuf0"]
 
 [ext_resource type="Script" uid="uid://bic7qvwwcbmh0" path="res://scripts/Main.cs" id="1_sugp2"]
 [ext_resource type="Texture2D" uid="uid://r3hhumcc2kyq" path="res://sprites/tileset_floor.png" id="2_sugp2"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://b4u1gt5p3nkyy" path="res://other_assets/nose.mp3" id="5_tbgi4"]
 [ext_resource type="Script" uid="uid://b2j382s3m7wv2" path="res://scripts/FlashLightMechanics.cs" id="5_tefeu"]
 [ext_resource type="AudioStream" uid="uid://bh3uieoyavq7k" path="res://other_assets/bells.mp3" id="7_o6xl0"]
+[ext_resource type="Texture2D" uid="uid://u3aorun6qabm" path="res://sprites/battery.png" id="7_tipki"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jyhfs"]
 resource_name = "floor"
@@ -64,6 +65,81 @@ gradient = SubResource("Gradient_choun")
 fill = 2
 fill_from = Vector2(0.46153846, 0.47863248)
 fill_to = Vector2(0, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85g3d"]
+atlas = ExtResource("7_tipki")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_choun"]
+atlas = ExtResource("7_tipki")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ya4ey"]
+atlas = ExtResource("7_tipki")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eb6dy"]
+atlas = ExtResource("7_tipki")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trceg"]
+atlas = ExtResource("7_tipki")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8y0u"]
+atlas = ExtResource("7_tipki")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jkv2x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85g3d")
+}],
+"loop": true,
+"name": &"20%",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_choun")
+}],
+"loop": true,
+"name": &"40%",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ya4ey")
+}],
+"loop": true,
+"name": &"60%",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eb6dy")
+}],
+"loop": true,
+"name": &"80%",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trceg")
+}],
+"loop": true,
+"name": &"empty",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8y0u")
+}],
+"loop": true,
+"name": &"full",
+"speed": 5.0
+}]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_sugp2")
@@ -159,6 +235,18 @@ text = "270"
 [node name="PointLight2D" type="PointLight2D" parent="Node2D/Label"]
 position = Vector2(14, 21)
 scale = Vector2(2.5937495, 1.1406251)
+texture = SubResource("GradientTexture2D_ya4ey")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D"]
+position = Vector2(496, -144)
+sprite_frames = SubResource("SpriteFrames_jkv2x")
+animation = &"full"
+autoplay = "full"
+
+[node name="PointLight2D" type="PointLight2D" parent="Node2D/AnimatedSprite2D"]
+position = Vector2(1.9999847, 2.026558e-06)
+scale = Vector2(1.3750001, 1.1406251)
+energy = 1.37
 texture = SubResource("GradientTexture2D_ya4ey")
 
 [node name="WinSound" type="AudioStreamPlayer2D" parent="."]
