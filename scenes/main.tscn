@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://r3hhumcc2kyq" path="res://sprites/tileset_floor.png" id="2_sugp2"]
 [ext_resource type="Texture2D" uid="uid://c8bwpy05ujrkm" path="res://icon.svg" id="3_jyhfs"]
 
-<<<<<<< HEAD
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jyhfs"]
 resource_name = "tileset"
 texture = ExtResource("2_sugp2")
