@@ -155,8 +155,9 @@ offset_left = 483.0
 offset_top = -91.0
 offset_right = 523.0
 offset_bottom = -68.0
-text = "25"
+text = "125"
 label_settings = SubResource("LabelSettings_tbgi4")
+metadata/_edit_use_anchors_ = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.21950102, 0.21950102, 0.21950102, 1)
@@ -191,6 +192,7 @@ offset_right = 60.0
 offset_bottom = 60.0
 action_mode = 0
 icon = ExtResource("3_jyhfs")
+metadata/_edit_use_anchors_ = true
 
 [node name="PointLight2D" type="PointLight2D" parent="Node2D/Button"]
 position = Vector2(61, 61.000015)
@@ -207,6 +209,7 @@ offset_top = -63.0
 offset_right = 536.0
 offset_bottom = 17.0
 text = "Battery (25)"
+metadata/_edit_use_anchors_ = true
 
 [node name="PointLight2D" type="PointLight2D" parent="Node2D/ButtonBuyBattery"]
 position = Vector2(51.000008, 43)
@@ -219,6 +222,7 @@ offset_top = 25.0
 offset_right = 546.0
 offset_bottom = 66.0
 text = "Upgrade (75)"
+metadata/_edit_use_anchors_ = true
 
 [node name="PointLight2D" type="PointLight2D" parent="Node2D/ButtonUpgrade"]
 position = Vector2(52, 22.5)
@@ -231,6 +235,7 @@ offset_top = -379.0
 offset_right = 8.0
 offset_bottom = -356.0
 text = "270"
+metadata/_edit_use_anchors_ = true
 
 [node name="PointLight2D" type="PointLight2D" parent="Node2D/Label"]
 position = Vector2(14, 21)
