@@ -92,10 +92,10 @@ theme_override_fonts/font = ExtResource("2_702p1")
 text = "Il y a différents types d'améliorations, les améliorations sont les suivantes : "
 
 [node name="UpgradeDesc" type="Label" parent="."]
-offset_left = -507.0
-offset_top = 113.0
-offset_right = 219.0
-offset_bottom = 258.0
+offset_left = -506.0
+offset_top = 112.0
+offset_right = 220.0
+offset_bottom = 257.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_702p1")
 text = "- Recharge de la batterie

@@ -19,10 +19,7 @@ public partial class PauseMenu : Node2D
 		{
 			ruleScene.Visible = false;
 		}
-
-		var scene2 = GD.Load<PackedScene>("res://scenes/setting.tscn");
-		var instance2 = scene.Instantiate();
-		AddChild(instance2);
+		
 		settingsScene = GetNode<Node2D>("Setting") as Setting;  
 		
 		if (settingsScene != null)

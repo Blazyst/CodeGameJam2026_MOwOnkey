@@ -11,8 +11,10 @@ albedo_texture = ExtResource("1_u58eq")
 material = SubResource("StandardMaterial3D_vjb58")
 orientation = 2
 
-[node name="Setting" type="Node2D"]
+[node name="Setting" type="Node2D" node_paths=PackedStringArray("ResolutionOptionButton")]
+position = Vector2(1, 0)
 script = ExtResource("1_sjyvh")
+ResolutionOptionButton = NodePath("OptionButton")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
 position = Vector2(7.6293945e-06, 7.6293945e-06)
@@ -39,6 +41,12 @@ offset_bottom = 216.0
 theme_override_fonts/font = ExtResource("2_7k1fe")
 text = "Retour"
 
+[node name="OptionButton" type="OptionButton" parent="."]
+offset_top = -17.0
+offset_right = 32.0
+offset_bottom = 3.0
+
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [connection signal="pressed" from="BackBtn" to="." method="OnBackPressed"]
+[connection signal="item_selected" from="OptionButton" to="." method="OnResolutionSelected"]
