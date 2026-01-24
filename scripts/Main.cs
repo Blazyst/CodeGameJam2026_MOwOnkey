@@ -19,8 +19,12 @@ public partial class Main : Node2D
 	private AudioStreamPlayer2D soundPlayer;
 	
 	private PauseMenu pauseMenu;
+	
+	private Foxy foxy;
 
 	private Button btn;
+
+	private Timer timer;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -34,11 +38,17 @@ public partial class Main : Node2D
 		{
 			pauseMenu.Visible = false;
 		}
-		this.btn = GetNode<Button>("Button");
+		this.btn = GetNode<Node2D>("Node2D").GetNode<Button>("Button");
 		this.btn.ButtonDown += OnButtonDown;
-		GetNode<Button>("ButtonBuyBattery").ButtonDown += onBuyBatteryButtonDown;
-		GetNode<Button>("ButtonUpgrade").ButtonDown += onButtonUpgradeButtonDown;
-		soundPlayer = GetNode<AudioStreamPlayer2D>("nosePlayer");
+		GetNode<Node2D>("Node2D").GetNode<Button>("ButtonBuyBattery").ButtonDown += onBuyBatteryButtonDown;
+		GetNode<Node2D>("Node2D").GetNode<Button>("ButtonUpgrade").ButtonDown += onButtonUpgradeButtonDown;
+		soundPlayer = GetNode<Node2D>("Node2D").GetNode<Button>("Button").GetNode<AudioStreamPlayer2D>("nosePlayer");
+		timer = new Timer();
+		AddChild(timer);
+		timer.WaitTime = 10;
+		timer.Start();
+		timer.Autostart = false;
+		timer.Timeout += Win;
 	}
 
 	private void OnButtonDown()
@@ -70,19 +80,43 @@ public partial class Main : Node2D
             currentUpgradePrice = (int)(currentUpgradePrice * 2.2);
             GetNode<Button>("ButtonUpgrade").Text = "Upgrade (" + currentUpgradePrice.ToString() + ")";
 		}
-		
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		
+		GetNode<Node2D>("Node2D").GetNode<Label>("Label").Text = ""+(int)Math.Round(timer.TimeLeft, 0);
+		// if (foxy == null)
+		// {
+		// 	var scene = ResourceLoader.Load<PackedScene>("res://scenes/foxy.tscn").Instantiate<Foxy>();
+		// 	foxy = scene;
+		// 	AddChild(foxy);
+		// 	foxy.Position = new Vector2(-500, 0);
+		// }
+	}
+
+
+	private void Win()
+	{
+		timer.Stop();
+		AudioStreamPlayer2D winSound = GetNode<AudioStreamPlayer2D>("WinSound");
+		winSound.Play();
+		winSound.Finished += DisplayMenu;
+	}
+
+	private void DisplayMenu()
+	{
+		var scene = GD.Load<PackedScene>("res://scenes/menu.tscn");
+		var instance = scene.Instantiate() as Node2D;
+		GetTree().Root.AddChild(instance);
+		QueueFree();
 	}
 
 	public override void _Input(InputEvent @event)
 	{
 		if (@event.IsActionPressed("Pause"))
 		{
+			timer.Paused = !timer.Paused;
 			pauseMenu.Visible = !pauseMenu.Visible;
 		}
 	}

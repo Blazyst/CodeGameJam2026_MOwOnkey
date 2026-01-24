@@ -1,5 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://xglepq8afuf0"]
-
+[gd_scene load_steps=20 format=4 uid="uid://xglepq8afuf0"]
 
 [ext_resource type="Script" uid="uid://bic7qvwwcbmh0" path="res://scripts/Main.cs" id="1_sugp2"]
 [ext_resource type="Texture2D" uid="uid://r3hhumcc2kyq" path="res://sprites/tileset_floor.png" id="2_sugp2"]
@@ -7,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cxnwm05ns5c7e" path="res://sprites/stage.png" id="4_jyhfs"]
 [ext_resource type="AudioStream" uid="uid://b4u1gt5p3nkyy" path="res://other_assets/nose.mp3" id="5_tbgi4"]
 [ext_resource type="Script" uid="uid://b2j382s3m7wv2" path="res://scripts/FlashLightMechanics.cs" id="5_tefeu"]
+[ext_resource type="AudioStream" uid="uid://bh3uieoyavq7k" path="res://other_assets/bells.mp3" id="7_o6xl0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jyhfs"]
 resource_name = "floor"
@@ -148,3 +148,18 @@ text = "Upgrade (75)"
 position = Vector2(52, 22.5)
 scale = Vector2(2.5937495, 1.1406251)
 texture = SubResource("GradientTexture2D_ya4ey")
+
+[node name="Label" type="Label" parent="Node2D"]
+offset_left = -30.0
+offset_top = -379.0
+offset_right = 8.0
+offset_bottom = -356.0
+text = "270"
+
+[node name="PointLight2D" type="PointLight2D" parent="Node2D/Label"]
+position = Vector2(14, 21)
+scale = Vector2(2.5937495, 1.1406251)
+texture = SubResource("GradientTexture2D_ya4ey")
+
+[node name="WinSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_o6xl0")
