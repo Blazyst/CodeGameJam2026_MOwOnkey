@@ -24,6 +24,7 @@ text = "Retour au Menu"
 position = Vector2(461, 181)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(3, -1)
 stream = ExtResource("4_vqs20")
 autoplay = true
 parameters/looping = true
