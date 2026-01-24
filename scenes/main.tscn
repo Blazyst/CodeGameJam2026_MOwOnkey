@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=4 uid="uid://xglepq8afuf0"]
+[gd_scene load_steps=19 format=4 uid="uid://xglepq8afuf0"]
 
 [ext_resource type="Script" uid="uid://bic7qvwwcbmh0" path="res://scripts/Main.cs" id="1_sugp2"]
 [ext_resource type="Texture2D" uid="uid://r3hhumcc2kyq" path="res://sprites/tileset_floor.png" id="2_sugp2"]
 [ext_resource type="Texture2D" uid="uid://komy2bx1f20h" path="res://sprites/freddy_head.png" id="3_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://cxnwm05ns5c7e" path="res://sprites/stage.png" id="4_jyhfs"]
 [ext_resource type="AudioStream" uid="uid://b4u1gt5p3nkyy" path="res://other_assets/nose.mp3" id="5_tbgi4"]
+[ext_resource type="Script" uid="uid://b2j382s3m7wv2" path="res://scripts/FlashLightMechanics.cs" id="5_tefeu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jyhfs"]
 resource_name = "floor"
@@ -71,6 +72,47 @@ sources/0 = SubResource("TileSetAtlasSource_jyhfs")
 [sub_resource type="LabelSettings" id="LabelSettings_tbgi4"]
 font_color = Color(0, 0, 0, 1)
 
+[sub_resource type="Gradient" id="Gradient_tbgi4"]
+offsets = PackedFloat32Array(0.37589929, 0.75179857)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tefeu"]
+gradient = SubResource("Gradient_tbgi4")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.50427353, 0.491453)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o6xl0"]
+
+[sub_resource type="Gradient" id="Gradient_tefeu"]
+offsets = PackedFloat32Array(0.3111511, 0.9406475)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_o6xl0"]
+gradient = SubResource("Gradient_tefeu")
+fill = 1
+fill_from = Vector2(0.52136755, 0.4871795)
+
+[sub_resource type="Gradient" id="Gradient_tipki"]
+offsets = PackedFloat32Array(0.32194245, 0.79316545)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_85g3d"]
+gradient = SubResource("Gradient_tipki")
+fill = 2
+fill_from = Vector2(0.517094, 0.47008547)
+
+[sub_resource type="Gradient" id="Gradient_choun"]
+offsets = PackedFloat32Array(0.2589928, 0.75)
+colors = PackedColorArray(0.97482014, 0.97482014, 0.97482014, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ya4ey"]
+gradient = SubResource("Gradient_choun")
+fill = 2
+fill_from = Vector2(0.46153846, 0.47863248)
+fill_to = Vector2(0, 0)
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_sugp2")
 
@@ -80,24 +122,6 @@ tile_set = SubResource("TileSet_tbgi4")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Button" type="Button" parent="."]
-offset_left = -60.0
-offset_top = -60.0
-offset_right = 60.0
-offset_bottom = 60.0
-action_mode = 0
-icon = ExtResource("3_jyhfs")
-
-[node name="Stage" type="Sprite2D" parent="."]
-position = Vector2(-106.5, -218)
-scale = Vector2(3.328125, 3.328125)
-texture = ExtResource("4_jyhfs")
-
-[node name="Stage2" type="Sprite2D" parent="."]
-position = Vector2(106.63867, -217.86133)
-scale = Vector2(3.3394167, 3.3394167)
-texture = ExtResource("4_jyhfs")
-
 [node name="Label" type="Label" parent="."]
 offset_left = 483.0
 offset_top = -91.0
@@ -106,19 +130,69 @@ offset_bottom = -68.0
 text = "25"
 label_settings = SubResource("LabelSettings_tbgi4")
 
-[node name="ButtonBuyBattery" type="Button" parent="."]
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.21950102, 0.21950102, 0.21950102, 1)
+
+[node name="Node2D" type="Node2D" parent="CanvasModulate"]
+script = ExtResource("5_tefeu")
+
+[node name="LumiereSouris" type="PointLight2D" parent="CanvasModulate/Node2D"]
+texture = SubResource("GradientTexture2D_tefeu")
+
+[node name="Area2D" type="Area2D" parent="CanvasModulate/Node2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasModulate/Node2D/Area2D"]
+shape = SubResource("CircleShape2D_o6xl0")
+
+[node name="Stage" type="Sprite2D" parent="CanvasModulate"]
+position = Vector2(-106.5, -218)
+scale = Vector2(3.328125, 3.328125)
+texture = ExtResource("4_jyhfs")
+
+[node name="Stage2" type="Sprite2D" parent="CanvasModulate"]
+position = Vector2(106.63867, -217.86133)
+scale = Vector2(3.3394167, 3.3394167)
+texture = ExtResource("4_jyhfs")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Button" type="Button" parent="Node2D"]
+offset_left = -60.0
+offset_top = -60.0
+offset_right = 60.0
+offset_bottom = 60.0
+action_mode = 0
+icon = ExtResource("3_jyhfs")
+
+[node name="PointLight2D" type="PointLight2D" parent="Node2D/Button"]
+position = Vector2(61, 61.000015)
+scale = Vector2(2.328125, 2.3125)
+texture = SubResource("GradientTexture2D_o6xl0")
+
+[node name="nosePlayer" type="AudioStreamPlayer2D" parent="Node2D/Button"]
+position = Vector2(60, 60)
+stream = ExtResource("5_tbgi4")
+
+[node name="ButtonBuyBattery" type="Button" parent="Node2D"]
 offset_left = 438.0
 offset_top = -63.0
 offset_right = 536.0
 offset_bottom = 17.0
 text = "Battery (25)"
 
-[node name="ButtonUpgrade" type="Button" parent="."]
+[node name="PointLight2D" type="PointLight2D" parent="Node2D/ButtonBuyBattery"]
+position = Vector2(51.000008, 43)
+scale = Vector2(2.2499998, 1)
+texture = SubResource("GradientTexture2D_85g3d")
+
+[node name="ButtonUpgrade" type="Button" parent="Node2D"]
 offset_left = 439.0
 offset_top = 25.0
-offset_right = 539.0
+offset_right = 546.0
 offset_bottom = 66.0
 text = "Upgrade (75)"
 
-[node name="nosePlayer" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_tbgi4")
+[node name="PointLight2D" type="PointLight2D" parent="Node2D/ButtonUpgrade"]
+position = Vector2(52, 22.5)
+scale = Vector2(2.5937495, 1.1406251)
+texture = SubResource("GradientTexture2D_ya4ey")
