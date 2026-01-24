@@ -8,19 +8,16 @@
 [ext_resource type="Texture2D" uid="uid://cxnwm05ns5c7e" path="res://sprites/stage.png" id="4_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://ce6xpdflusxlf" path="res://sprites/Bonnie.png" id="5_eb6dy"]
 [ext_resource type="AudioStream" uid="uid://b4u1gt5p3nkyy" path="res://other_assets/nose.mp3" id="5_tbgi4"]
-<<<<<<< HEAD
-[ext_resource type="Script" uid="uid://55rxymrfrres" path="res://scripts/FlashLightMechanics.cs" id="5_tefeu"]
-[ext_resource type="AudioStream" uid="uid://bh3uieoyavq7k" path="res://other_assets/bells.mp3" id="7_o6xl0"]
-[ext_resource type="Texture2D" uid="uid://u3aorun6qabm" path="res://sprites/battery.png" id="7_tipki"]
+
 [ext_resource type="Texture2D" uid="uid://d2wq1wkwampm8" path="res://sprites/Confetti.png" id="9_85g3d"]
-=======
+
 [ext_resource type="Script" uid="uid://b2j382s3m7wv2" path="res://scripts/FlashLightMechanics.cs" id="5_tefeu"]
 [ext_resource type="Texture2D" uid="uid://v5yn4nq31gw5" path="res://sprites/freddy.png" id="6_trceg"]
 [ext_resource type="AudioStream" uid="uid://bh3uieoyavq7k" path="res://other_assets/bells.mp3" id="7_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://u3aorun6qabm" path="res://sprites/battery.png" id="7_tipki"]
 [ext_resource type="Texture2D" uid="uid://d2wq1wkwampm8" path="res://sprites/Confetti.png" id="9_85g3d"]
 [ext_resource type="Texture2D" uid="uid://blkdse2eiaasu" path="res://sprites/Chica.png" id="12_a8y0u"]
->>>>>>> c42bda6d870b6c16373ccb31119ec274637d1774
+
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jyhfs"]
 resource_name = "floor"
