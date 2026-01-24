@@ -13,7 +13,7 @@ public partial class DeathMenu : Node2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		backMenuBtn = GetNode<Button>("BackMenuBtn");  
+		backMenuBtn = GetNode<Button>("BackBtn");  
 		if (backMenuBtn != null)
 		{
 			backMenuBtn.Pressed += OnBackMenuBtnBtnPressed;

@@ -46,7 +46,7 @@ public partial class Main : Node2D
 		soundPlayer = GetNode<Node2D>("Node2D").GetNode<Button>("Button").GetNode<AudioStreamPlayer2D>("nosePlayer");
 		timer = new Timer();
 		AddChild(timer);
-		timer.WaitTime = 270;
+		timer.WaitTime = 5;
 		timer.Start();
 		timer.Autostart = false;
 		timer.Timeout += Win;
@@ -106,22 +106,14 @@ public partial class Main : Node2D
 	private void Win()
 	{
 		timer.Stop();
-		AudioStreamPlayer2D winSound = GetNode<AudioStreamPlayer2D>("WinSound");
-		winSound.Play();
-		winSound.Finished += DisplayMenu;
+		var scene = ResourceLoader.Load<PackedScene>("res://scenes/winMenu.tscn").Instantiate();
+		GetTree().Root.AddChild(scene);
+		GetTree().Root.GetNode<Node2D>("Node2D").QueueFree();
 	}
 
 	public void Lose()
 	{
 		timer.Stop();
-	}
-
-	private void DisplayMenu()
-	{
-		var scene = GD.Load<PackedScene>("res://scenes/menu.tscn");
-		var instance = scene.Instantiate() as Node2D;
-		GetTree().Root.AddChild(instance);
-		QueueFree();
 	}
 
 	public override void _Input(InputEvent @event)
