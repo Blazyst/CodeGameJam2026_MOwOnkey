@@ -1,14 +1,13 @@
 using Godot;
 using System;
 
-public partial class Menu : Node2D
+public partial class PauseMenu : Node2D
 {
 	private Setting settingsScene;
 	private Rule ruleScene;
 	private Button settingsBtn;
-	private Button startBtn;
 	private Button ruleBtn;
-	private Button quitBtn;
+	private Button backMenuBtn;
 
 	public override void _Ready()
 	{
@@ -20,7 +19,10 @@ public partial class Menu : Node2D
 		{
 			ruleScene.Visible = false;
 		}
-		
+
+		var scene2 = GD.Load<PackedScene>("res://scenes/setting.tscn");
+		var instance2 = scene.Instantiate();
+		AddChild(instance);
 		settingsScene = GetNode<Node2D>("Setting") as Setting;  
 		
 		if (settingsScene != null)
@@ -34,22 +36,10 @@ public partial class Menu : Node2D
 			settingsBtn.Pressed += OnSettingsBtnPressed;
 		}
 		
-		startBtn = GetNode<Button>("StartBtn");  
-		if (startBtn != null)
-		{
-			startBtn.Pressed += OnStartBtnPressed;
-		}
-		
 		ruleBtn = GetNode<Button>("RuleBtn");  
 		if (ruleBtn != null)
 		{
 			ruleBtn.Pressed += OnRuleBtnPressed;
-		}
-		
-		quitBtn = GetNode<Button>("QuitBtn");
-		if (quitBtn != null)
-		{
-			quitBtn.Pressed += OnQuitBtnPressed;
 		}
 	}
 
@@ -58,21 +48,15 @@ public partial class Menu : Node2D
 		settingsScene.Visible = true;
 	}
 	
-	public void OnStartBtnPressed()
+	public void OnBackMenuBtnBtnPressed()
 	{
-		var scene = ResourceLoader.Load<PackedScene>("res://scenes/main.tscn").Instantiate();
+		var scene = ResourceLoader.Load<PackedScene>("res://scenes/menu.tscn").Instantiate();
 		GetTree().Root.AddChild(scene);
-		GetTree().Root.GetNode<Node2D>("Menu").QueueFree();
+		GetTree().Root.GetNode<Node2D>("MenuPause").QueueFree();
 	}
 	
 	public void OnRuleBtnPressed()
 	{
 		ruleScene.Visible = true;
 	}
-
-	public void OnQuitBtnPressed()
-	{
-		GetTree().Quit();	
-	}
-	
 }
