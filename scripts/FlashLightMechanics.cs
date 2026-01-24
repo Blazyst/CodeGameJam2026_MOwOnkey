@@ -64,10 +64,11 @@ public partial class FlashLightMechanics : Node2D
             BatteryBar.Play("20%");
         }
 
-        if (CurrentBattery < 0)
+        if (CurrentBattery <= 0)
         {
             CurrentBattery = 0;
             BatteryBar.Play("empty");
+            
         }
     }
 

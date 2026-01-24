@@ -95,6 +95,11 @@ public partial class Main : Node2D
 		// 	AddChild(foxy);
 		// 	foxy.Position = new Vector2(-500, 0);
 		// }
+
+		if (FlashlightScript.CurrentBattery <= 0)
+		{
+			Lose();
+		}
 	}
 
 
@@ -104,6 +109,11 @@ public partial class Main : Node2D
 		AudioStreamPlayer2D winSound = GetNode<AudioStreamPlayer2D>("WinSound");
 		winSound.Play();
 		winSound.Finished += DisplayMenu;
+	}
+
+	public void Lose()
+	{
+		timer.Stop();
 	}
 
 	private void DisplayMenu()
