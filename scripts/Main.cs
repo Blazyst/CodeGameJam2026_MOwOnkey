@@ -1,16 +1,17 @@
 using Godot;
 using System;
+using CodeGameJam2026_MOwOnkey.scripts;
 
 public partial class Main : Node2D
 {
 	[Export] public int Points = 125;
+	[Export] public FlashLightMechanics FlashlightScript;
 
 	private const int START_BATTERY_PRICE = 25;
 	
 	private int currentBatteryPrice = START_BATTERY_PRICE;
 
 	private int pointsEarnedPerClick = 1;
-	
 	
 	private const int START_UPGRADE_PRICE = 75;
 	
@@ -45,7 +46,7 @@ public partial class Main : Node2D
 		soundPlayer = GetNode<Node2D>("Node2D").GetNode<Button>("Button").GetNode<AudioStreamPlayer2D>("nosePlayer");
 		timer = new Timer();
 		AddChild(timer);
-		timer.WaitTime = 10;
+		timer.WaitTime = 270;
 		timer.Start();
 		timer.Autostart = false;
 		timer.Timeout += Win;
@@ -67,6 +68,7 @@ public partial class Main : Node2D
 			GetNode<Label>("Label").Text = Points.ToString();
 			currentBatteryPrice = (int)(currentBatteryPrice * 1.2);
 			GetNode<Node2D>("Node2D").GetNode<Button>("ButtonBuyBattery").Text = "Battery (" + currentBatteryPrice.ToString() + ")";
+			FlashlightScript.RechargeBattery();
 		}
 	}
 	

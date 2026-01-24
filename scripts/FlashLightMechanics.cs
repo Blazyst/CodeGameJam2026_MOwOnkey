@@ -14,14 +14,20 @@ public partial class FlashLightMechanics : Node2D
 {
     private PointLight2D _light;
     private Area2D _area;
+    private const float MAX_BATTERY = 100f;
+    [Export] public AnimatedSprite2D BatteryBar;
 
     public override void _Ready()
     {
         _light = GetNode<PointLight2D>("LumiereSouris");
         _area = GetNode<Area2D>("Area2D");
-        ToggleFlashlight(false);
-        _area.BodyEntered += OnBodyEntered;
-        _area.BodyExited += OnBodyExited;
+        ToggleFlashlight(true);
+    }
+    
+    public void RechargeBattery()
+    {
+        CurrentBattery += 0.2f*MAX_BATTERY;
+        if (CurrentBattery > MAX_BATTERY) CurrentBattery = MAX_BATTERY;
     }
 
     public override void _Process(double delta)
@@ -35,6 +41,34 @@ public partial class FlashLightMechanics : Node2D
         {
             ToggleFlashlight(false);
         }
+        DrainBattery(0.05f);
+        if (CurrentBattery < 0) CurrentBattery = 0;
+        if (CurrentBattery >= 0.80f * MAX_BATTERY)
+        {
+            BatteryBar.Play("full");
+        }
+        else if (CurrentBattery >= 0.60f * MAX_BATTERY)
+        {
+            BatteryBar.Play("80%");
+        }
+        else if (CurrentBattery >= 0.40f * MAX_BATTERY)
+        {
+            BatteryBar.Play("60%");
+        }
+        else if (CurrentBattery >= 0.20f * MAX_BATTERY)
+        {
+            BatteryBar.Play("40%");
+        }
+        else
+        {
+            BatteryBar.Play("20%");
+        }
+
+        if (CurrentBattery < 0)
+        {
+            CurrentBattery = 0;
+            BatteryBar.Play("empty");
+        }
     }
 
     private void ToggleFlashlight(bool isActive)
@@ -46,27 +80,11 @@ public partial class FlashLightMechanics : Node2D
 
     }
 
-    private void OnBodyEntered(Node2D body)
-    {
-        if (body.IsInGroup("Foxy-G"))
-        {
-            GD.Print($"J'ai trouvé un Foxy-G : {body.Name} !");
-        }
-    }
-
-    private void OnBodyExited(Node2D body)
-    {
-        if (body.IsInGroup("Foxy-G"))
-        {
-            GD.Print($"{body.Name} n'est plus dans la lumière.");
-        }
-    }
-
     public float CurrentBattery { get; private set; } = 100f;
 
     public void DrainBattery(float amount)
     {
         CurrentBattery -= amount;
-        if (CurrentBattery < 0) CurrentBattery = 0;
+        GD.Print(CurrentBattery);
     }
 }
