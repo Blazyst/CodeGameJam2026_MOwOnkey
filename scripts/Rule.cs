@@ -15,7 +15,5 @@ public partial class Rule : Node2D
 	public void OnBackPressed()
 	{
 		Visible = false;
-		var menuParent = GetParent() as Menu;
-		menuParent.Visible = true;  
 	}
 }
