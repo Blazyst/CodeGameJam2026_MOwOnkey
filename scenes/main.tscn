@@ -1,15 +1,26 @@
-[gd_scene load_steps=30 format=4 uid="uid://xglepq8afuf0"]
+[gd_scene load_steps=32 format=4 uid="uid://xglepq8afuf0"]
+
 
 [ext_resource type="Script" uid="uid://bic7qvwwcbmh0" path="res://scripts/Main.cs" id="1_sugp2"]
 [ext_resource type="Texture2D" uid="uid://r3hhumcc2kyq" path="res://sprites/tileset_floor.png" id="2_sugp2"]
 [ext_resource type="FontFile" uid="uid://dxw3j8g1wsmjk" path="res://font/FiveFontsatFreddy's-Regular.ttf" id="3_choun"]
 [ext_resource type="Texture2D" uid="uid://komy2bx1f20h" path="res://sprites/freddy_head.png" id="3_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://cxnwm05ns5c7e" path="res://sprites/stage.png" id="4_jyhfs"]
+[ext_resource type="Texture2D" uid="uid://ce6xpdflusxlf" path="res://sprites/Bonnie.png" id="5_eb6dy"]
 [ext_resource type="AudioStream" uid="uid://b4u1gt5p3nkyy" path="res://other_assets/nose.mp3" id="5_tbgi4"]
+<<<<<<< HEAD
 [ext_resource type="Script" uid="uid://55rxymrfrres" path="res://scripts/FlashLightMechanics.cs" id="5_tefeu"]
 [ext_resource type="AudioStream" uid="uid://bh3uieoyavq7k" path="res://other_assets/bells.mp3" id="7_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://u3aorun6qabm" path="res://sprites/battery.png" id="7_tipki"]
 [ext_resource type="Texture2D" uid="uid://d2wq1wkwampm8" path="res://sprites/Confetti.png" id="9_85g3d"]
+=======
+[ext_resource type="Script" uid="uid://b2j382s3m7wv2" path="res://scripts/FlashLightMechanics.cs" id="5_tefeu"]
+[ext_resource type="Texture2D" uid="uid://v5yn4nq31gw5" path="res://sprites/freddy.png" id="6_trceg"]
+[ext_resource type="AudioStream" uid="uid://bh3uieoyavq7k" path="res://other_assets/bells.mp3" id="7_o6xl0"]
+[ext_resource type="Texture2D" uid="uid://u3aorun6qabm" path="res://sprites/battery.png" id="7_tipki"]
+[ext_resource type="Texture2D" uid="uid://d2wq1wkwampm8" path="res://sprites/Confetti.png" id="9_85g3d"]
+[ext_resource type="Texture2D" uid="uid://blkdse2eiaasu" path="res://sprites/Chica.png" id="12_a8y0u"]
+>>>>>>> c42bda6d870b6c16373ccb31119ec274637d1774
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jyhfs"]
 resource_name = "floor"
@@ -191,6 +202,16 @@ position = Vector2(106.63867, -217.86133)
 scale = Vector2(3.3394167, 3.3394167)
 texture = ExtResource("4_jyhfs")
 
+[node name="Bonnie" type="Sprite2D" parent="CanvasModulate"]
+position = Vector2(119, -215)
+scale = Vector2(0.47, 0.47)
+texture = ExtResource("5_eb6dy")
+
+[node name="Freddy" type="Sprite2D" parent="CanvasModulate"]
+position = Vector2(-5, -210)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_trceg")
+
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="Button" type="Button" parent="Node2D"]
@@ -340,3 +361,8 @@ texture = ExtResource("9_85g3d")
 position = Vector2(160, -177)
 scale = Vector2(0.06, 0.06)
 texture = ExtResource("9_85g3d")
+
+[node name="Chica" type="Sprite2D" parent="."]
+position = Vector2(-130, -210)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_a8y0u")
