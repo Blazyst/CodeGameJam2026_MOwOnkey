@@ -77,8 +77,8 @@ public partial class Main : Node2D
 			pointsEarnedPerClick += 2;
 			Points  -= currentUpgradePrice;
 			GetNode<Label>("Label").Text = Points.ToString();
-            currentUpgradePrice = (int)(currentUpgradePrice * 2.2);
-            GetNode<Node2D>("Node2D").GetNode<Button>("ButtonUpgrade").Text = "Upgrade (" + currentUpgradePrice.ToString() + ")";
+			currentUpgradePrice = (int)(currentUpgradePrice * 2.2);
+			GetNode<Node2D>("Node2D").GetNode<Button>("ButtonUpgrade").Text = "Upgrade (" + currentUpgradePrice.ToString() + ")";
 		}
 	}
 
