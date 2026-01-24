@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://xglepq8afuf0"]
+[gd_scene load_steps=33 format=4 uid="uid://cbm6loui5fyxc"]
 
 [ext_resource type="Script" uid="uid://bic7qvwwcbmh0" path="res://scripts/Main.cs" id="1_sugp2"]
 [ext_resource type="Texture2D" uid="uid://r3hhumcc2kyq" path="res://sprites/tileset_floor.png" id="2_sugp2"]
@@ -7,16 +7,12 @@
 [ext_resource type="Texture2D" uid="uid://cxnwm05ns5c7e" path="res://sprites/stage.png" id="4_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://ce6xpdflusxlf" path="res://sprites/Bonnie.png" id="5_eb6dy"]
 [ext_resource type="AudioStream" uid="uid://b4u1gt5p3nkyy" path="res://other_assets/nose.mp3" id="5_tbgi4"]
-
-[ext_resource type="Texture2D" uid="uid://d2wq1wkwampm8" path="res://sprites/Confetti.png" id="9_85g3d"]
-
-[ext_resource type="Script" uid="uid://b2j382s3m7wv2" path="res://scripts/FlashLightMechanics.cs" id="5_tefeu"]
+[ext_resource type="Script" uid="uid://55rxymrfrres" path="res://scripts/FlashLightMechanics.cs" id="5_tefeu"]
 [ext_resource type="Texture2D" uid="uid://v5yn4nq31gw5" path="res://sprites/freddy.png" id="6_trceg"]
 [ext_resource type="AudioStream" uid="uid://bh3uieoyavq7k" path="res://other_assets/bells.mp3" id="7_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://u3aorun6qabm" path="res://sprites/battery.png" id="7_tipki"]
 [ext_resource type="Texture2D" uid="uid://d2wq1wkwampm8" path="res://sprites/Confetti.png" id="9_85g3d"]
 [ext_resource type="Texture2D" uid="uid://blkdse2eiaasu" path="res://sprites/Chica.png" id="12_a8y0u"]
-
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jyhfs"]
 resource_name = "floor"
@@ -152,9 +148,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Node2D" type="Node2D" node_paths=PackedStringArray("FlashlightScript")]
+[node name="Node2D" type="Node2D"]
 script = ExtResource("1_sugp2")
-FlashlightScript = NodePath("CanvasModulate/Node2D")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAD2//r/AAAAAAEAAAD2//v/AAAAAAEAAAD2//z/AAAAAAEAAAD2//3/AAAAAAEAAAD2//7/AAAAAAEAAAD2////AAAAAAEAAAD2/wAAAAAAAAEAAAD2/wEAAAAAAAEAAAD2/wIAAAAAAAAAAAD2/wMAAAAAAAEAAAD2/wQAAAAAAAEAAAD2/wUAAAABAAAAAAD3//r/AAAAAAAAAAD3//v/AAAAAAEAAAD3//z/AAAAAAEAAAD3//3/AAAAAAEAAAD3//7/AAAAAAEAAAD3////AAABAAAAAAD3/wAAAAAAAAEAAAD3/wEAAAAAAAEAAAD3/wIAAAAAAAAAAAD3/wMAAAAAAAEAAAD3/wQAAAAAAAEAAAD3/wUAAAAAAAEAAAD4//r/AAAAAAEAAAD4//v/AAABAAAAAAD4//z/AAAAAAEAAAD4//3/AAAAAAAAAAD4//7/AAAAAAEAAAD4////AAAAAAEAAAD4/wAAAAAAAAEAAAD4/wEAAAABAAAAAAD4/wIAAAAAAAEAAAD4/wMAAAAAAAEAAAD4/wQAAAAAAAEAAAD4/wUAAAAAAAAAAAD5//r/AAAAAAEAAAD5//v/AAABAAAAAAD5//z/AAABAAAAAAD5//3/AAABAAAAAAD5//7/AAAAAAEAAAD5////AAAAAAEAAAD5/wAAAAAAAAEAAAD5/wEAAAAAAAEAAAD5/wIAAAAAAAEAAAD5/wMAAAABAAAAAAD5/wQAAAABAAAAAAD5/wUAAAAAAAEAAAD6//r/AAAAAAAAAAD6//v/AAAAAAEAAAD6//z/AAABAAAAAAD6//3/AAAAAAEAAAD6//7/AAABAAAAAAD6////AAAAAAAAAAD6/wAAAAAAAAEAAAD6/wEAAAABAAAAAAD6/wIAAAABAAAAAAD6/wMAAAAAAAEAAAD6/wQAAAAAAAEAAAD6/wUAAAAAAAAAAAD7//r/AAAAAAEAAAD7//v/AAAAAAEAAAD7//z/AAAAAAEAAAD7//3/AAAAAAEAAAD7//7/AAAAAAAAAAD7////AAAAAAEAAAD7/wAAAAAAAAAAAAD7/wEAAAABAAAAAAD7/wIAAAAAAAEAAAD7/wMAAAAAAAEAAAD7/wQAAAAAAAEAAAD7/wUAAAAAAAEAAAD8//r/AAAAAAEAAAD8//v/AAAAAAEAAAD8//z/AAAAAAAAAAD8//3/AAAAAAAAAAD8//7/AAABAAAAAAD8////AAAAAAEAAAD8/wAAAAAAAAEAAAD8/wEAAAAAAAEAAAD8/wIAAAAAAAEAAAD8/wMAAAAAAAEAAAD8/wQAAAAAAAAAAAD8/wUAAAABAAAAAAD9//r/AAAAAAEAAAD9//v/AAAAAAEAAAD9//z/AAABAAAAAAD9//3/AAAAAAEAAAD9//7/AAABAAAAAAD9////AAAAAAEAAAD9/wAAAAAAAAEAAAD9/wEAAAABAAAAAAD9/wIAAAAAAAEAAAD9/wMAAAAAAAEAAAD9/wQAAAAAAAEAAAD9/wUAAAAAAAAAAAD+//r/AAAAAAEAAAD+//v/AAAAAAEAAAD+//z/AAAAAAEAAAD+//3/AAABAAAAAAD+//7/AAAAAAEAAAD+////AAAAAAEAAAD+/wAAAAAAAAEAAAD+/wEAAAAAAAEAAAD+/wIAAAAAAAEAAAD+/wMAAAAAAAEAAAD+/wQAAAAAAAEAAAD+/wUAAAAAAAEAAAD///r/AAAAAAEAAAD///v/AAAAAAEAAAD///z/AAAAAAEAAAD///3/AAAAAAEAAAD///7/AAAAAAEAAAD/////AAAAAAAAAAD//wAAAAAAAAEAAAD//wEAAAABAAAAAAD//wIAAAAAAAEAAAD//wMAAAABAAAAAAD//wQAAAAAAAEAAAD//wUAAAAAAAEAAAAAAPr/AAAAAAEAAAAAAPv/AAABAAAAAAAAAPz/AAAAAAEAAAAAAP3/AAABAAAAAAAAAP7/AAAAAAEAAAAAAP//AAAAAAEAAAAAAAAAAAAAAAEAAAAAAAEAAAABAAAAAAAAAAIAAAAAAAEAAAAAAAMAAAABAAAAAAAAAAQAAAAAAAEAAAAAAAUAAAAAAAEAAAABAPr/AAAAAAAAAAABAPv/AAABAAAAAAABAPz/AAAAAAAAAAABAP3/AAAAAAEAAAABAP7/AAABAAAAAAABAP//AAABAAAAAAABAAAAAAAAAAEAAAABAAEAAAAAAAEAAAABAAIAAAAAAAEAAAABAAMAAAAAAAEAAAABAAQAAAAAAAEAAAABAAUAAAAAAAAAAAACAPr/AAAAAAAAAAACAPv/AAAAAAEAAAACAPz/AAAAAAEAAAACAP3/AAAAAAAAAAACAP7/AAAAAAEAAAACAP//AAAAAAEAAAACAAAAAAAAAAEAAAACAAEAAAAAAAEAAAACAAIAAAAAAAAAAAACAAMAAAAAAAEAAAACAAQAAAAAAAEAAAACAAUAAAAAAAEAAAADAPr/AAAAAAEAAAADAPv/AAAAAAEAAAADAPz/AAABAAAAAAADAP3/AAAAAAEAAAADAP7/AAAAAAEAAAADAP//AAAAAAEAAAADAAAAAAAAAAEAAAADAAEAAAAAAAEAAAADAAIAAAAAAAAAAAADAAMAAAAAAAAAAAADAAQAAAAAAAEAAAADAAUAAAAAAAEAAAAEAPr/AAABAAAAAAAEAPv/AAABAAAAAAAEAPz/AAAAAAEAAAAEAP3/AAAAAAEAAAAEAP7/AAAAAAEAAAAEAP//AAAAAAEAAAAEAAAAAAAAAAEAAAAEAAEAAAAAAAEAAAAEAAIAAAAAAAEAAAAEAAMAAAAAAAEAAAAEAAQAAAABAAAAAAAEAAUAAAAAAAAAAAAFAPr/AAAAAAEAAAAFAPv/AAAAAAEAAAAFAPz/AAAAAAEAAAAFAP3/AAAAAAEAAAAFAP7/AAAAAAEAAAAFAP//AAAAAAEAAAAFAAAAAAAAAAEAAAAFAAEAAAAAAAEAAAAFAAIAAAAAAAAAAAAFAAMAAAAAAAEAAAAFAAQAAAAAAAEAAAAFAAUAAAAAAAEAAAAGAPr/AAAAAAEAAAAGAPv/AAAAAAEAAAAGAPz/AAAAAAEAAAAGAP3/AAABAAAAAAAGAP7/AAAAAAEAAAAGAP//AAAAAAEAAAAGAAAAAAAAAAAAAAAGAAEAAAAAAAEAAAAGAAIAAAAAAAEAAAAGAAMAAAABAAAAAAAGAAQAAAAAAAEAAAAGAAUAAAAAAAAAAAAHAPr/AAAAAAEAAAAHAPv/AAAAAAEAAAAHAPz/AAAAAAEAAAAHAP3/AAAAAAEAAAAHAP7/AAAAAAEAAAAHAP//AAAAAAEAAAAHAAAAAAAAAAAAAAAHAAEAAAAAAAEAAAAHAAIAAAAAAAEAAAAHAAMAAAAAAAEAAAAHAAQAAAAAAAEAAAAHAAUAAAAAAAEAAAAIAPr/AAAAAAEAAAAIAPv/AAAAAAEAAAAIAPz/AAABAAAAAAAIAP3/AAAAAAEAAAAIAP7/AAAAAAEAAAAIAP//AAAAAAEAAAAIAAAAAAAAAAEAAAAIAAEAAAAAAAAAAAAIAAIAAAAAAAEAAAAIAAMAAAAAAAEAAAAIAAQAAAAAAAEAAAAIAAUAAAAAAAEAAAAJAPr/AAAAAAEAAAAJAPv/AAAAAAEAAAAJAPz/AAAAAAEAAAAJAP3/AAAAAAEAAAAJAP7/AAAAAAEAAAAJAP//AAABAAAAAAAJAAAAAAAAAAEAAAAJAAEAAAAAAAEAAAAJAAIAAAAAAAEAAAAJAAMAAAAAAAEAAAAJAAQAAAAAAAAAAAAJAAUAAAAAAAEAAAA=")
@@ -172,20 +167,22 @@ label_settings = SubResource("LabelSettings_tbgi4")
 metadata/_edit_use_anchors_ = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.21950102, 0.21950102, 0.21950102, 1)
 
-[node name="Node2D" type="Node2D" parent="CanvasModulate" node_paths=PackedStringArray("BatteryBar")]
+[node name="Node2D" type="Node2D" parent="CanvasModulate"]
+visible = false
 script = ExtResource("5_tefeu")
-BatteryBar = NodePath("../../Node2D/AnimatedSprite2D")
 
 [node name="LumiereSouris" type="PointLight2D" parent="CanvasModulate/Node2D"]
+visible = false
 position = Vector2(-34.499985, 7.9999695)
 scale = Vector2(15.1953125, 10.375)
 texture = SubResource("GradientTexture2D_tefeu")
 
 [node name="Area2D" type="Area2D" parent="CanvasModulate/Node2D"]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasModulate/Node2D/Area2D"]
+visible = false
 shape = SubResource("CircleShape2D_o6xl0")
 
 [node name="Stage" type="Sprite2D" parent="CanvasModulate"]
@@ -220,6 +217,7 @@ icon = ExtResource("3_jyhfs")
 metadata/_edit_use_anchors_ = true
 
 [node name="PointLight2D" type="PointLight2D" parent="Node2D/Button"]
+visible = false
 position = Vector2(61, 61.000015)
 scale = Vector2(2.328125, 2.3125)
 texture = SubResource("GradientTexture2D_o6xl0")
@@ -237,6 +235,7 @@ text = "Battery (25)"
 metadata/_edit_use_anchors_ = true
 
 [node name="PointLight2D" type="PointLight2D" parent="Node2D/ButtonBuyBattery"]
+visible = false
 position = Vector2(51.000008, 43)
 scale = Vector2(2.2499998, 1)
 texture = SubResource("GradientTexture2D_85g3d")
@@ -250,6 +249,7 @@ text = "Upgrade (75)"
 metadata/_edit_use_anchors_ = true
 
 [node name="PointLight2D" type="PointLight2D" parent="Node2D/ButtonUpgrade"]
+visible = false
 position = Vector2(52, 22.5)
 scale = Vector2(2.5937495, 1.1406251)
 texture = SubResource("GradientTexture2D_ya4ey")
@@ -263,6 +263,7 @@ text = "270"
 metadata/_edit_use_anchors_ = true
 
 [node name="PointLight2D" type="PointLight2D" parent="Node2D/Label"]
+visible = false
 position = Vector2(14, 21)
 scale = Vector2(2.5937495, 1.1406251)
 texture = SubResource("GradientTexture2D_ya4ey")
@@ -274,12 +275,14 @@ animation = &"full"
 autoplay = "full"
 
 [node name="PointLight2D" type="PointLight2D" parent="Node2D/AnimatedSprite2D"]
+visible = false
 position = Vector2(1.9999847, 2.026558e-06)
 scale = Vector2(1.3750001, 1.1406251)
 energy = 1.37
 texture = SubResource("GradientTexture2D_ya4ey")
 
 [node name="PointLight2D" type="PointLight2D" parent="Node2D/AnimatedSprite2D/PointLight2D"]
+visible = false
 position = Vector2(5.1818323, 56.986294)
 scale = Vector2(1.019886, 0.85798365)
 energy = 1.37

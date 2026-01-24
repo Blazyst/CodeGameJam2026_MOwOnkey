@@ -11,15 +11,13 @@ config_version=5
 [application]
 
 config/name="CodeGameJam2026_MOwOnkey"
-run/main_scene="uid://xglepq8afuf0"
+run/main_scene="uid://dvnpbac5xqf4l"
 config/features=PackedStringArray("4.5", "C#", "GL Compatibility")
 boot_splash/image="uid://dm28mfe1lpeb7"
 config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
 
 [dotnet]
