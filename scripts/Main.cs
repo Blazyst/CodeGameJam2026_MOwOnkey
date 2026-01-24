@@ -5,7 +5,6 @@ using CodeGameJam2026_MOwOnkey.scripts;
 public partial class Main : Node2D
 {
 	[Export] public int Points = 125;
-	[Export] public FlashLightMechanics FlashlightScript;
 
 	private const int START_BATTERY_PRICE = 25;
 	
@@ -13,7 +12,7 @@ public partial class Main : Node2D
 
 	private int pointsEarnedPerClick = 1;
 	
-	private const int START_UPGRADE_PRICE = 75;
+	private const int START_UPGRADE_PRICE = 45;
 	
 	private int currentUpgradePrice = START_UPGRADE_PRICE;
 	
@@ -26,9 +25,14 @@ public partial class Main : Node2D
 	private Button btn;
 
 	private Timer timer;
+	private AnimatedSprite2D BatteryBar;
+	private const float MAX_BATTERY = 100f;
+	
+	public float CurrentBattery { get; private set; } = 100f;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		BatteryBar = GetNode<AnimatedSprite2D>("Node2D/AnimatedSprite2D");
 		var scene = GD.Load<PackedScene>("res://scenes/pause_menu.tscn");
 		var instance = scene.Instantiate() as Node2D;
 		AddChild(instance);
@@ -46,7 +50,7 @@ public partial class Main : Node2D
 		soundPlayer = GetNode<Node2D>("Node2D").GetNode<Button>("Button").GetNode<AudioStreamPlayer2D>("nosePlayer");
 		timer = new Timer();
 		AddChild(timer);
-		timer.WaitTime = 5;
+		timer.WaitTime = 60;
 		timer.Start();
 		timer.Autostart = false;
 		timer.Timeout += Win;
@@ -68,8 +72,13 @@ public partial class Main : Node2D
 			GetNode<Label>("Label").Text = Points.ToString();
 			currentBatteryPrice = (int)(currentBatteryPrice * 1.2);
 			GetNode<Node2D>("Node2D").GetNode<Button>("ButtonBuyBattery").Text = "Battery (" + currentBatteryPrice.ToString() + ")";
-			FlashlightScript.RechargeBattery();
+			RechargeBattery();
 		}
+	}
+	public void RechargeBattery()
+	{
+		CurrentBattery = CurrentBattery + 0.2f*MAX_BATTERY;
+		if (CurrentBattery > MAX_BATTERY) CurrentBattery = MAX_BATTERY;
 	}
 	
 	private void onButtonUpgradeButtonDown()
@@ -96,12 +105,47 @@ public partial class Main : Node2D
 		// 	foxy.Position = new Vector2(-500, 0);
 		// }
 
-		if (FlashlightScript.CurrentBattery <= 0)
+		if (CurrentBattery <= 0)
 		{
 			Lose();
 		}
+		
+		DrainBattery(0.05f);
+		if (CurrentBattery < 0) CurrentBattery = 0;
+		if (CurrentBattery >= 0.80f * MAX_BATTERY)
+		{
+			BatteryBar.Play("full");
+		}
+		else if (CurrentBattery >= 0.60f * MAX_BATTERY)
+		{
+			BatteryBar.Play("80%");
+		}
+		else if (CurrentBattery >= 0.40f * MAX_BATTERY)
+		{
+			BatteryBar.Play("60%");
+		}
+		else if (CurrentBattery >= 0.20f * MAX_BATTERY)
+		{
+			BatteryBar.Play("40%");
+		}
+		else
+		{
+			BatteryBar.Play("20%");
+		}
+        
+		if (CurrentBattery <= 0)
+		{
+			CurrentBattery = 0;
+			BatteryBar.Play("empty");
+            
+		}
 	}
 
+	public void DrainBattery(float amount)
+	{
+		CurrentBattery -= amount;
+		GD.Print(CurrentBattery);
+	}
 
 	private void Win()
 	{

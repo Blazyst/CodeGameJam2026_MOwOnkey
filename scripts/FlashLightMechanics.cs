@@ -26,21 +26,21 @@ public partial class FlashLightMechanics : Node2D
     
     public void RechargeBattery()
     {
-        CurrentBattery += 0.2f*MAX_BATTERY;
+        CurrentBattery = CurrentBattery + 0.2f*MAX_BATTERY;
         if (CurrentBattery > MAX_BATTERY) CurrentBattery = MAX_BATTERY;
     }
 
     public override void _Process(double delta)
     {
-        GlobalPosition = GetGlobalMousePosition();
-        if (Input.IsMouseButtonPressed(MouseButton.Right))
-        {
-            ToggleFlashlight(true);
-        }
-        else
-        {
-            ToggleFlashlight(false);
-        }
+        // GlobalPosition = GetGlobalMousePosition();
+        // if (Input.IsMouseButtonPressed(MouseButton.Right))
+        // {
+        //     ToggleFlashlight(true);
+        // }
+        // else
+        // {
+        //     ToggleFlashlight(false);
+        // }
         DrainBattery(0.05f);
         if (CurrentBattery < 0) CurrentBattery = 0;
         if (CurrentBattery >= 0.80f * MAX_BATTERY)
@@ -63,7 +63,7 @@ public partial class FlashLightMechanics : Node2D
         {
             BatteryBar.Play("20%");
         }
-
+        
         if (CurrentBattery <= 0)
         {
             CurrentBattery = 0;

@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://cbm6loui5fyxc"]
+[gd_scene load_steps=32 format=4 uid="uid://xglepq8afuf0"]
 
 [ext_resource type="Script" uid="uid://bic7qvwwcbmh0" path="res://scripts/Main.cs" id="1_sugp2"]
 [ext_resource type="Texture2D" uid="uid://r3hhumcc2kyq" path="res://sprites/tileset_floor.png" id="2_sugp2"]
@@ -148,6 +148,7 @@ animations = [{
 }]
 
 [node name="Node2D" type="Node2D"]
+scale = Vector2(1, 0.835)
 script = ExtResource("1_sugp2")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -167,9 +168,11 @@ metadata/_edit_use_anchors_ = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 
-[node name="Node2D" type="Node2D" parent="CanvasModulate"]
+[node name="Node2D" type="Node2D" parent="CanvasModulate" node_paths=PackedStringArray("BatteryBar")]
 visible = false
+scale = Vector2(0.9987844, 1)
 script = ExtResource("5_tefeu")
+BatteryBar = NodePath("../../Node2D/AnimatedSprite2D")
 
 [node name="LumiereSouris" type="PointLight2D" parent="CanvasModulate/Node2D"]
 visible = false
@@ -244,7 +247,7 @@ offset_left = 439.0
 offset_top = 25.0
 offset_right = 546.0
 offset_bottom = 66.0
-text = "Upgrade (75)"
+text = "Upgrade (45)"
 metadata/_edit_use_anchors_ = true
 
 [node name="PointLight2D" type="PointLight2D" parent="Node2D/ButtonUpgrade"]
