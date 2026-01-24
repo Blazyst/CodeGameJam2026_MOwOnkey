@@ -1,0 +1,79 @@
+[gd_scene load_steps=7 format=3 uid="uid://dvnpbac5xqf4l"]
+
+[ext_resource type="Script" uid="uid://cb8xe75k35o1f" path="res://scripts/Menu.cs" id="1_con2f"]
+[ext_resource type="Texture2D" uid="uid://c8bwpy05ujrkm" path="res://icon.svg" id="1_myx47"]
+[ext_resource type="FontFile" uid="uid://dxw3j8g1wsmjk" path="res://font/FiveFontsatFreddy's-Regular.ttf" id="2_kukqi"]
+[ext_resource type="PackedScene" uid="uid://da6e8qxrbuw5q" path="res://scenes/setting.tscn" id="4_mhnvy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mhnvy"]
+albedo_texture = ExtResource("1_myx47")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_p81d2"]
+material = SubResource("StandardMaterial3D_mhnvy")
+orientation = 2
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_con2f")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+position = Vector2(1.0848045e-05, 8.34465e-06)
+scale = Vector2(575.99994, 324)
+mesh = SubResource("PlaneMesh_p81d2")
+
+[node name="StartBtn" type="Button" parent="."]
+offset_left = -95.0
+offset_top = -119.0
+offset_right = 102.0
+offset_bottom = -60.0
+theme_override_fonts/font = ExtResource("2_kukqi")
+theme_override_font_sizes/font_size = 20
+text = "Nouvelle Partie"
+
+[node name="RuleBtn" type="Button" parent="."]
+offset_left = -96.0
+offset_top = -27.0
+offset_right = 101.0
+offset_bottom = 32.0
+theme_override_fonts/font = ExtResource("2_kukqi")
+theme_override_font_sizes/font_size = 20
+text = "Règle"
+
+[node name="QuitBtn" type="Button" parent="."]
+offset_left = -95.0
+offset_top = 154.0
+offset_right = 100.0
+offset_bottom = 211.0
+theme_override_fonts/font = ExtResource("2_kukqi")
+theme_override_font_sizes/font_size = 20
+text = "Quitter le jeu"
+
+[node name="SettingsBtn" type="Button" parent="."]
+offset_left = -93.0
+offset_top = 60.0
+offset_right = 100.0
+offset_bottom = 121.0
+theme_override_fonts/font = ExtResource("2_kukqi")
+theme_override_font_sizes/font_size = 20
+text = "Paramètre"
+
+[node name="Label" type="Label" parent="."]
+offset_left = -366.0
+offset_top = -292.0
+offset_right = 354.0
+offset_bottom = -164.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_kukqi")
+theme_override_font_sizes/font_size = 60
+text = "Five Clicks At Foxy's"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Setting" parent="." instance=ExtResource("4_mhnvy")]
+visible = false
+
+[connection signal="pressed" from="StartBtn" to="." method="OnStartBtnPressed"]
+[connection signal="pressed" from="RuleBtn" to="." method="OnRuleBtnPressed"]
+[connection signal="pressed" from="QuitBtn" to="." method="OnQuitBtnPressed"]
+[connection signal="pressed" from="SettingsBtn" to="." method="OnSettingsBtnPressed"]

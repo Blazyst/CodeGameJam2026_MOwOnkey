@@ -17,11 +17,23 @@ public partial class Main : Node2D
 	private int currentUpgradePrice = START_UPGRADE_PRICE;
 	
 	private AudioStreamPlayer2D soundPlayer;
+	
+	private PauseMenu pauseMenu;
 
 	private Button btn;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		var scene = GD.Load<PackedScene>("res://scenes/pause_menu.tscn");
+		var instance = scene.Instantiate() as Node2D;
+		AddChild(instance);
+		instance.Visible = false;
+		pauseMenu = GetNode<Node2D>("PauseMenu") as PauseMenu;
+		var test = GetTree();
+		if (pauseMenu != null)
+		{
+			pauseMenu.Visible = false;
+		}
 		this.btn = GetNode<Button>("Button");
 		this.btn.ButtonDown += OnButtonDown;
 		GetNode<Button>("ButtonBuyBattery").ButtonDown += onBuyBatteryButtonDown;
@@ -64,5 +76,15 @@ public partial class Main : Node2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+		
 	}
+
+	public override void _Input(InputEvent @event)
+	{
+		if (@event.IsActionPressed("Pause"))
+		{
+			pauseMenu.Visible = !pauseMenu.Visible;
+		}
+	}
+	
 }
