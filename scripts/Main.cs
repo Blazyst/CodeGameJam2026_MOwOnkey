@@ -3,7 +3,7 @@ using System;
 
 public partial class Main : Node2D
 {
-	[Export] public int Points = 25;
+	[Export] public int Points = 125;
 
 	private const int START_BATTERY_PRICE = 25;
 	
@@ -66,7 +66,7 @@ public partial class Main : Node2D
 			Points -= currentBatteryPrice;
 			GetNode<Label>("Label").Text = Points.ToString();
 			currentBatteryPrice = (int)(currentBatteryPrice * 1.2);
-			GetNode<Button>("ButtonBuyBattery").Text = "Battery (" + currentBatteryPrice.ToString() + ")";
+			GetNode<Node2D>("Node2D").GetNode<Button>("ButtonBuyBattery").Text = "Battery (" + currentBatteryPrice.ToString() + ")";
 		}
 	}
 	
@@ -78,7 +78,7 @@ public partial class Main : Node2D
 			Points  -= currentUpgradePrice;
 			GetNode<Label>("Label").Text = Points.ToString();
             currentUpgradePrice = (int)(currentUpgradePrice * 2.2);
-            GetNode<Button>("ButtonUpgrade").Text = "Upgrade (" + currentUpgradePrice.ToString() + ")";
+            GetNode<Node2D>("Node2D").GetNode<Button>("ButtonUpgrade").Text = "Upgrade (" + currentUpgradePrice.ToString() + ")";
 		}
 	}
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://xglepq8afuf0"]
+[gd_scene load_steps=29 format=4 uid="uid://xglepq8afuf0"]
 
 [ext_resource type="Script" uid="uid://bic7qvwwcbmh0" path="res://scripts/Main.cs" id="1_sugp2"]
 [ext_resource type="Texture2D" uid="uid://r3hhumcc2kyq" path="res://sprites/tileset_floor.png" id="2_sugp2"]
@@ -7,6 +7,8 @@
 [ext_resource type="AudioStream" uid="uid://b4u1gt5p3nkyy" path="res://other_assets/nose.mp3" id="5_tbgi4"]
 [ext_resource type="Script" uid="uid://b2j382s3m7wv2" path="res://scripts/FlashLightMechanics.cs" id="5_tefeu"]
 [ext_resource type="AudioStream" uid="uid://bh3uieoyavq7k" path="res://other_assets/bells.mp3" id="7_o6xl0"]
+[ext_resource type="Texture2D" uid="uid://u3aorun6qabm" path="res://sprites/battery.png" id="7_tipki"]
+[ext_resource type="Texture2D" uid="uid://d2wq1wkwampm8" path="res://other_assets/Confetti.png" id="9_85g3d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jyhfs"]
 resource_name = "floor"
@@ -65,6 +67,81 @@ fill = 2
 fill_from = Vector2(0.46153846, 0.47863248)
 fill_to = Vector2(0, 0)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_85g3d"]
+atlas = ExtResource("7_tipki")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_choun"]
+atlas = ExtResource("7_tipki")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ya4ey"]
+atlas = ExtResource("7_tipki")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eb6dy"]
+atlas = ExtResource("7_tipki")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trceg"]
+atlas = ExtResource("7_tipki")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8y0u"]
+atlas = ExtResource("7_tipki")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jkv2x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85g3d")
+}],
+"loop": true,
+"name": &"20%",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_choun")
+}],
+"loop": true,
+"name": &"40%",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ya4ey")
+}],
+"loop": true,
+"name": &"60%",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eb6dy")
+}],
+"loop": true,
+"name": &"80%",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trceg")
+}],
+"loop": true,
+"name": &"empty",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8y0u")
+}],
+"loop": true,
+"name": &"full",
+"speed": 5.0
+}]
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_sugp2")
 
@@ -79,8 +156,9 @@ offset_left = 483.0
 offset_top = -91.0
 offset_right = 523.0
 offset_bottom = -68.0
-text = "25"
+text = "125"
 label_settings = SubResource("LabelSettings_tbgi4")
+metadata/_edit_use_anchors_ = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.21950102, 0.21950102, 0.21950102, 1)
@@ -115,6 +193,7 @@ offset_right = 60.0
 offset_bottom = 60.0
 action_mode = 0
 icon = ExtResource("3_jyhfs")
+metadata/_edit_use_anchors_ = true
 
 [node name="PointLight2D" type="PointLight2D" parent="Node2D/Button"]
 position = Vector2(61, 61.000015)
@@ -131,6 +210,7 @@ offset_top = -63.0
 offset_right = 536.0
 offset_bottom = 17.0
 text = "Battery (25)"
+metadata/_edit_use_anchors_ = true
 
 [node name="PointLight2D" type="PointLight2D" parent="Node2D/ButtonBuyBattery"]
 position = Vector2(51.000008, 43)
@@ -143,6 +223,7 @@ offset_top = 25.0
 offset_right = 546.0
 offset_bottom = 66.0
 text = "Upgrade (75)"
+metadata/_edit_use_anchors_ = true
 
 [node name="PointLight2D" type="PointLight2D" parent="Node2D/ButtonUpgrade"]
 position = Vector2(52, 22.5)
@@ -155,11 +236,94 @@ offset_top = -379.0
 offset_right = 8.0
 offset_bottom = -356.0
 text = "270"
+metadata/_edit_use_anchors_ = true
 
 [node name="PointLight2D" type="PointLight2D" parent="Node2D/Label"]
 position = Vector2(14, 21)
 scale = Vector2(2.5937495, 1.1406251)
 texture = SubResource("GradientTexture2D_ya4ey")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D"]
+position = Vector2(496, -144)
+sprite_frames = SubResource("SpriteFrames_jkv2x")
+animation = &"full"
+autoplay = "full"
+
+[node name="PointLight2D" type="PointLight2D" parent="Node2D/AnimatedSprite2D"]
+position = Vector2(1.9999847, 2.026558e-06)
+scale = Vector2(1.3750001, 1.1406251)
+energy = 1.37
+texture = SubResource("GradientTexture2D_ya4ey")
+
 [node name="WinSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_o6xl0")
+
+[node name="Confetti" type="Sprite2D" parent="."]
+position = Vector2(-563, 312.00003)
+scale = Vector2(0.1, 0.095)
+texture = ExtResource("9_85g3d")
+
+[node name="Confetti2" type="Sprite2D" parent="."]
+position = Vector2(-133, 79)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("9_85g3d")
+
+[node name="Confetti3" type="Sprite2D" parent="."]
+position = Vector2(-319, -71)
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("9_85g3d")
+
+[node name="Confetti4" type="Sprite2D" parent="."]
+position = Vector2(414, -233)
+scale = Vector2(0.11, 0.11)
+texture = ExtResource("9_85g3d")
+
+[node name="Confetti5" type="Sprite2D" parent="."]
+position = Vector2(364, 182)
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("9_85g3d")
+
+[node name="Confetti6" type="Sprite2D" parent="."]
+position = Vector2(82, 234)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("9_85g3d")
+
+[node name="Confetti7" type="Sprite2D" parent="."]
+position = Vector2(-559, -325)
+scale = Vector2(0.13, 0.13)
+texture = ExtResource("9_85g3d")
+
+[node name="Confetti8" type="Sprite2D" parent="."]
+position = Vector2(582, 119)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("9_85g3d")
+
+[node name="Confetti9" type="Sprite2D" parent="."]
+position = Vector2(234, -43)
+scale = Vector2(0.11, 0.11)
+texture = ExtResource("9_85g3d")
+
+[node name="Confetti10" type="Sprite2D" parent="."]
+position = Vector2(-349, 134)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_85g3d")
+
+[node name="Confetti11" type="Sprite2D" parent="."]
+position = Vector2(-534, 2)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("9_85g3d")
+
+[node name="Confetti12" type="Sprite2D" parent="."]
+position = Vector2(297, 330)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("9_85g3d")
+
+[node name="Confetti13" type="Sprite2D" parent="."]
+position = Vector2(-159, -179)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("9_85g3d")
+
+[node name="Confetti14" type="Sprite2D" parent="."]
+position = Vector2(160, -177)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_85g3d")

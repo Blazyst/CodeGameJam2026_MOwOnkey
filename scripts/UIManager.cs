@@ -10,7 +10,7 @@ namespace CodeGameJam2026_MOwOnkey.scripts;
 /// assigned for correct operation.</remarks>
 public partial class UIManager : CanvasLayer
 {
-    [Export] public ProgressBar BatteryBar;
+    [Export] public AnimatedSprite2D BatteryBar;
     [Export] public CodeGameJam2026_MOwOnkey.scripts.FlashLightMechanics FlashlightScript; // Le lien vers l'autre script
 
     public override void _Process(double delta)
@@ -18,8 +18,29 @@ public partial class UIManager : CanvasLayer
         // On vérifie que le lien est bien fait pour éviter les crashs
         if (FlashlightScript != null && BatteryBar != null)
         {
-            // On met à jour la barre en fonction de la batterie actuelle
-            BatteryBar.Value = FlashlightScript.CurrentBattery;
+            float CurrentBattery = FlashlightScript.CurrentBattery;
+            float MaxBattery = 100f;
+            if (CurrentBattery < 0) CurrentBattery = 0;
+            if (CurrentBattery >= 0.80f * MaxBattery)
+            {
+                BatteryBar.Play("full");
+            }
+            else if (CurrentBattery >= 0.60f * MaxBattery)
+            {
+                BatteryBar.Play("60%");
+            }
+            else if (CurrentBattery >= 0.40f * MaxBattery)
+            {
+                BatteryBar.Play("40%");
+            }
+            else if (CurrentBattery >= 0.20f * MaxBattery)
+            {
+                BatteryBar.Play("20%");
+            }
+            else
+            {
+                BatteryBar.Play("empty");
+            }
         }
     }
 }
